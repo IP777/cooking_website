@@ -1,0 +1,25 @@
+.wrapper {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+}
+
+.form {
+	width: 300px;
+	margin-top: 80px;
+	text-align: center;
+}
+
+.headText {
+	display: block;
+	color: var(--red-color);
+}
+
+.btnWrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.formBtn {
+	width: 150px;
+}

@@ -1,0 +1,14 @@
+.input {
+	/* opacity: 1 !important; */
+	position: relative !important;
+	margin: 10px;
+}
+
+.lable {
+	font-size: 15px;
+}
+
+.arrow_checkbox {
+	position: absolute;
+	transform: translate(-25px, 5px);
+}

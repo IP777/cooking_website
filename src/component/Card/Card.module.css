@@ -1,0 +1,51 @@
+.wrapper {
+	height: 120px;
+	border: 1px solid var(--dark-4-color);
+	border-radius: 3px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.img {
+	display: block;
+	height: 118px;
+	border-radius: 3px 0 0 3px;
+}
+
+.listWrapper {
+	width: 100%;
+	padding-left: 15px;
+}
+
+.list {
+	height: 90px;
+	width: 400px;
+	display: flex;
+	/* justify-content: start; */
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.item {
+	display: flex;
+	justify-content: space-between;
+	width: 120px;
+	margin-right: 20px;
+}
+
+.receptName {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.itemName {
+	display: block;
+}
+
+.itemAmount {
+	display: block;
+}
+
+.leftBlock {
+	display: block;
+}

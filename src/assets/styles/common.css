@@ -1,0 +1,28 @@
+@font-face {
+	font-family: "Risque";
+	src: url("../../assets/fonts/Risque-Regular.ttf");
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+
+:root {
+	--red-color: #e53935;
+	--red-light-2-color: #e57373;
+	--red-light-5-color: #ffebee;
+	--dark-4-color: #212121;
+	--gray-light-5-color: #fafafa;
+	--gray-light-3-color: #eeeeee;
+	--gray-light-2-color: #e0e0e0;
+}
