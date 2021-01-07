@@ -17,7 +17,7 @@ export default function Header() {
 					<li>
 						<NavLink
 							exact
-							to="/registration"
+							to="/login"
 							className={style.selected_link}
 							activeClassName={style.selected_link_in}
 						>
@@ -27,7 +27,7 @@ export default function Header() {
 					<li>
 						<NavLink
 							exact
-							to="/login"
+							to="/registration"
 							className={style.selected_link}
 							activeClassName={style.selected_link_in}
 						>

@@ -4,12 +4,15 @@
 	border-radius: 3px;
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 15px;
 }
 
 .img {
 	display: block;
-	height: 118px;
+	/* height: 118px; */
+	width: 170px;
 	border-radius: 3px 0 0 3px;
+	cursor: pointer;
 }
 
 .listWrapper {
@@ -48,4 +51,17 @@
 
 .leftBlock {
 	display: block;
+	text-align: right;
+	padding-right: 15px;
+}
+
+.leftBlockCategory {
+	display: block;
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.leftBlockAutor {
+	display: block;
+	font-size: 16px;
 }

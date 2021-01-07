@@ -1,0 +1,110 @@
+[
+	{
+		"ingredients": [
+			{ "name": "Сливки", "amount": 200 },
+			{ "name": "Тесто", "amount": 300 },
+			{ "name": "Ягоды", "amount": 150 },
+			{ "name": "Вишня", "amount": 450 },
+			{ "name": "Клубника", "amount": 550 },
+			{ "name": "Яйца", "amount": 650 },
+			{ "name": "Сметана", "amount": 750 }
+		],
+		"recipe": [
+			{
+				"image_path": "/src/image/",
+				"step-1": "Пекинскую капусту порезать"
+			},
+			{
+				"image_path": "/src/image/",
+				"step-2": "Добавить порезанную небольшими кубиками курицу, нарезанные соломкой огурцы и измельченные яйца."
+			},
+			{
+				"image_path": "/src/image/",
+				"step-3": "Всыпать кукурузу."
+			},
+			{
+				"image_path": "/src/image/",
+				"step-4": "Посолить, поперчить, заправить майонезом и перемешать. Приятного апетита."
+			}
+		],
+		"_id": "5fd73da9275bb522549f28a4",
+		"recipe_name": "Салат из пекинской капусты с курицей",
+		"category": "Салаты",
+		"description": "Вкусный, легкий и простой в приготовлении ",
+		"__v": 0,
+		"autor": "Милка",
+		"main_image": "https://img-global.cpcdn.com/recipes/ce63309364b75ee0/751x532cq70/salat-iz-piekinskoi-kapusty-s-kuritsiei-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B5-%D1%84%D0%BE%D1%82%D0%BE-%D1%80%D0%B5%D1%86%D0%B5%D0%BF%D1%82%D0%B0.webp"
+	},
+	{
+		"ingredients": [
+			{ "name": "Сливки", "amount": 200 },
+			{ "name": "Тесто", "amount": 300 },
+			{ "name": "Ягоды", "amount": 150 },
+			{ "name": "Вишня", "amount": 450 },
+			{ "name": "Клубника", "amount": 550 },
+			{ "name": "Яйца", "amount": 650 },
+			{ "name": "Сметана", "amount": 750 }
+		],
+		"recipe": [
+			{
+				"image_path": "/src/image/",
+				"step-1": "Пекинскую капусту порезать"
+			},
+			{
+				"image_path": "/src/image/",
+				"step-2": "Добавить порезанную небольшими кубиками курицу, нарезанные соломкой огурцы и измельченные яйца."
+			},
+			{
+				"image_path": "/src/image/",
+				"step-3": "Всыпать кукурузу."
+			},
+			{
+				"image_path": "/src/image/",
+				"step-4": "Посолить, поперчить, заправить майонезом и перемешать. Приятного апетита."
+			}
+		],
+		"_id": "5fd9dc3e31da682360ad2dd8",
+		"recipe_name": "Салат из курицы",
+		"category": "Печенье",
+		"description": "Вкусный, легкий и простой в приготовлении ",
+		"__v": 0,
+		"autor": "Катя",
+		"main_image": "https://static.1000.menu/img/content/21154/postnoe-pechene-na-skoruu-ruku_1499055568_1_max.jpg"
+	},
+	{
+		"ingredients": [
+			{ "name": "Сливки", "amount": 200 },
+			{ "name": "Тесто", "amount": 300 },
+			{ "name": "Ягоды", "amount": 150 },
+			{ "name": "Вишня", "amount": 450 },
+			{ "name": "Клубника", "amount": 550 },
+			{ "name": "Яйца", "amount": 650 },
+			{ "name": "Сметана", "amount": 750 }
+		],
+		"recipe": [
+			{
+				"image_path": "/src/image/",
+				"step-1": "Пекинскую капусту порезать"
+			},
+			{
+				"image_path": "/src/image/",
+				"step-2": "Добавить порезанную небольшими кубиками курицу, нарезанные соломкой огурцы и измельченные яйца."
+			},
+			{
+				"image_path": "/src/image/",
+				"step-3": "Всыпать кукурузу."
+			},
+			{
+				"image_path": "/src/image/",
+				"step-4": "Посолить, поперчить, заправить майонезом и перемешать. Приятного апетита."
+			}
+		],
+		"_id": "5fd9ddcbbe4bdd1a68ffd54a",
+		"recipe_name": "Салат из курицы совсем новый ))",
+		"category": "Торт",
+		"description": "Вкусный, легкий и простой в приготовлении ",
+		"__v": 0,
+		"autor": "Петя",
+		"main_image": "https://static.1000.menu/img/content/36945/sochnyi-biskvitnyi-tort_1563566405_9_max.jpg"
+	}
+]

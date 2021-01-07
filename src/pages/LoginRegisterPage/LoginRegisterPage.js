@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-//import { TextField, Box, Button, Typography, Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import style from "./LoginRegisterPage.module.css";
-import { TextInput, Button, Icon } from "react-materialize";
+import { TextInput, Button } from "react-materialize";
 import M from "materialize-css";
+import { Link } from "react-router-dom";
 
 export default function LoginRegisterPage() {
 	const [email, setEmail] = useState("");
@@ -15,19 +14,19 @@ export default function LoginRegisterPage() {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		console.log(window.location.pathname.includes("login"));
+		console.log(window.location.pathname);
 	};
 
 	return (
 		<div className={style.wrapper}>
 			<form className={style.form} onClick={submitHandler}>
 				<h4 className={style.headText}>
-					{loginPage ? "Зарегестрироватся" : "Войти"}
+					{registerPage ? "Зарегестрироватся" : "Войти"}
 				</h4>
-				{loginPage && <TextInput id="TextInput-4" label="Имя" />}
+				{registerPage && <TextInput id="TextInput-4" label="Имя" />}
 				<TextInput id="TextInput-4" label="Email" />
 				<TextInput id="TextInput-4" label="Пароль" />
-				{loginPage && (
+				{registerPage && (
 					<TextInput id="TextInput-4" label="Повторить пароль" />
 				)}
 				<div className={style.btnWrapper}>
@@ -40,17 +39,42 @@ export default function LoginRegisterPage() {
 					>
 						Поехали
 					</Button>
+					{registerPage && (
+						<Link to="/login">
+							<Button
+								// className={style.formBtn}
+								node="button"
+								type="submit"
+								waves="light"
+								className="btn-flat"
+							>
+								Войти
+							</Button>
+						</Link>
+					)}
 					{loginPage && (
+						<Link to="/registration">
+							<Button
+								// className={style.formBtn}
+								node="button"
+								type="submit"
+								waves="light"
+								className="btn-flat"
+							>
+								Зарегестрироватся
+							</Button>
+						</Link>
+					)}
+					<Link to="/">
 						<Button
-							// className={style.formBtn}
 							node="button"
 							type="submit"
 							waves="light"
 							className="btn-flat"
 						>
-							Войти
+							НА ГЛАВНУЮ
 						</Button>
-					)}
+					</Link>
 				</div>
 			</form>
 		</div>
