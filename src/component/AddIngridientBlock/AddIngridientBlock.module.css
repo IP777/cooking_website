@@ -1,0 +1,33 @@
+.ingidientWrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.ingridientBlock {
+	width: 45%;
+	display: flex;
+}
+
+.ingridientBlock > input {
+	/* width: 40% !important; */
+	display: block;
+	color: gray;
+	margin-top: 10px !important;
+	margin-right: 10px !important;
+}
+
+.ingridientBlock > input:nth-child(1) {
+	width: 65% !important;
+}
+.ingridientBlock > input:nth-child(2) {
+	width: 20% !important;
+}
+
+.ingridientBlock > input::placeholder {
+	color: brown;
+}
+
+.addButton {
+	transform: scale(0.7);
+	/* visibility: hidden; */
+}

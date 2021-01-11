@@ -31,11 +31,10 @@ export default function LoginRegisterPage() {
 				)}
 				<div className={style.btnWrapper}>
 					<Button
-						className={style.formBtn}
+						className={style.formBtn + " red darken-1"}
 						node="button"
 						type="submit"
 						waves="light"
-						className="red darken-1"
 					>
 						Поехали
 					</Button>

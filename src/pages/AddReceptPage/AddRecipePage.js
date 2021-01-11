@@ -1,6 +1,7 @@
 import Header from "../../component/Header/Header";
+import AddIngridientBlock from "../../component/AddIngridientBlock/AddIngridientBlock";
+import AddRecipeBlock from "../../component/AddRecipeBlock/AddRecipeBlock";
 import style from "./AddRecipePage.module.css";
-import { TextInput, Icon } from "react-materialize";
 
 export default function AddRecipePage() {
 	return (
@@ -18,6 +19,20 @@ export default function AddRecipePage() {
 							<option value="3">Option 3</option>
 						</select>
 					</div>
+					<label className={style.recipeName}>
+						Ссылка на изображение <input type="text" />
+					</label>
+					<label className={style.recipeName}>
+						Описание
+						<textarea
+							className={style.textArea}
+							rows="10"
+							cols="45"
+							name="text"
+						/>
+					</label>
+					<AddIngridientBlock />
+					<AddRecipeBlock />
 				</div>
 			</div>
 		</>
