@@ -11,20 +11,20 @@
 		],
 		"recipe": [
 			{
-				"image_path": "/src/image/",
-				"step-1": "Пекинскую капусту порезать"
+				"image_path": false,
+				"step_text": "Пекинскую капусту порезать"
 			},
 			{
-				"image_path": "/src/image/",
-				"step-2": "Добавить порезанную небольшими кубиками курицу, нарезанные соломкой огурцы и измельченные яйца."
+				"image_path": false,
+				"step_text": "Добавить порезанную небольшими кубиками курицу, нарезанные соломкой огурцы и измельченные яйца."
 			},
 			{
-				"image_path": "/src/image/",
-				"step-3": "Всыпать кукурузу."
+				"image_path": false,
+				"step_text": "Всыпать кукурузу."
 			},
 			{
-				"image_path": "/src/image/",
-				"step-4": "Посолить, поперчить, заправить майонезом и перемешать. Приятного апетита."
+				"image_path": false,
+				"step_text": "Посолить, поперчить, заправить майонезом и перемешать. Приятного апетита."
 			}
 		],
 		"_id": "5fd73da9275bb522549f28a4",
@@ -47,25 +47,25 @@
 		],
 		"recipe": [
 			{
-				"image_path": "/src/image/",
-				"step-1": "Пекинскую капусту порезать"
+				"image_path": "https://img.povar.ru/main/92/f1/6f/98/pechene_quotden_i_nochquot-327318.jpg",
+				"step_text": "Пекинскую капусту порезать"
 			},
 			{
-				"image_path": "/src/image/",
-				"step-2": "Добавить порезанную небольшими кубиками курицу, нарезанные соломкой огурцы и измельченные яйца."
+				"image_path": "https://sladkoe.menu/wp-content/uploads/2018/12/rozhdestvenskoe-pechene-olen-rudolf-1380x915.jpg",
+				"step_text": "Добавить порезанную небольшими кубиками курицу, нарезанные соломкой огурцы и измельченные яйца."
 			},
 			{
-				"image_path": "/src/image/",
-				"step-3": "Всыпать кукурузу."
+				"image_path": "https://rutxt.ru/files/14674/original/075ef10019.JPG",
+				"step_text": "Всыпать кукурузу."
 			},
 			{
-				"image_path": "/src/image/",
-				"step-4": "Посолить, поперчить, заправить майонезом и перемешать. Приятного апетита."
+				"image_path": "https://www.yabpoela.com/uploads/posts/2019-10/1571235280_1571235288.jpg",
+				"step_text": "Посолить, поперчить, заправить майонезом и перемешать. Приятного апетита."
 			}
 		],
 		"_id": "5fd9dc3e31da682360ad2dd8",
-		"recipe_name": "Салат из курицы",
-		"category": "Печенье",
+		"recipe_name": "Рецепт печенья",
+		"category": "Сладкое",
 		"description": "Вкусный, легкий и простой в приготовлении ",
 		"__v": 0,
 		"autor": "Катя",
@@ -83,25 +83,25 @@
 		],
 		"recipe": [
 			{
-				"image_path": "/src/image/",
-				"step-1": "Пекинскую капусту порезать"
+				"image_path": "https://img-global.cpcdn.com/recipes/b352da77586b9b04/400x400cq70/photo.jpg",
+				"step_text": "Пекинскую капусту порезать"
 			},
 			{
-				"image_path": "/src/image/",
-				"step-2": "Добавить порезанную небольшими кубиками курицу, нарезанные соломкой огурцы и измельченные яйца."
+				"image_path": "https://www.gastronom.ru/binfiles/images/20200705/b5e057b2.jpg",
+				"step_text": "Добавить порезанную небольшими кубиками курицу, нарезанные соломкой огурцы и измельченные яйца."
 			},
 			{
-				"image_path": "/src/image/",
-				"step-3": "Всыпать кукурузу."
+				"image_path": "https://www.bene-gusto.com/wp-content/uploads/2020/07/rainbow-cake.jpg",
+				"step_text": "Всыпать кукурузу."
 			},
 			{
-				"image_path": "/src/image/",
-				"step-4": "Посолить, поперчить, заправить майонезом и перемешать. Приятного апетита."
+				"image_path": "https://exclusive-cake.com.ua/wp-content/uploads/2020/09/exclusive-sake-291.jpg",
+				"step_text": "Посолить, поперчить, заправить майонезом и перемешать. Приятного апетита."
 			}
 		],
 		"_id": "5fd9ddcbbe4bdd1a68ffd54a",
-		"recipe_name": "Салат из курицы совсем новый ))",
-		"category": "Торт",
+		"recipe_name": "Торт",
+		"category": "Сладкое",
 		"description": "Вкусный, легкий и простой в приготовлении ",
 		"__v": 0,
 		"autor": "Петя",

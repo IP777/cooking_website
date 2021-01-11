@@ -8,6 +8,7 @@ export default function Header() {
 				<Link to="/" className={style.brand_logo}>
 					Cooking
 				</Link>
+
 				<ul
 					id="nav-mobile"
 					className={
@@ -16,7 +17,6 @@ export default function Header() {
 				>
 					<li>
 						<NavLink
-							exact
 							to="/login"
 							className={style.selected_link}
 							activeClassName={style.selected_link_in}
@@ -32,6 +32,32 @@ export default function Header() {
 							activeClassName={style.selected_link_in}
 						>
 							Регистрация
+						</NavLink>
+					</li>
+				</ul>
+				<ul
+					id="nav-mobile"
+					className={
+						style.link_wrapper + " right hide-on-med-and-down"
+					}
+				>
+					<li>
+						<NavLink
+							exact
+							to="/"
+							className={style.selected_link}
+							activeClassName={style.selected_link_in}
+						>
+							Главная
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/myrecipe"
+							className={style.selected_link}
+							activeClassName={style.selected_link_in}
+						>
+							Мои рецепты
 						</NavLink>
 					</li>
 				</ul>

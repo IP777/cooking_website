@@ -1,0 +1,22 @@
+.wrapper {
+	margin: 25px;
+	border: 1px solid black;
+	border-radius: 8px;
+}
+.secondWrapper {
+	padding: 20px 100px;
+}
+
+.addRecipeHeader {
+	display: flex;
+	justify-content: space-between;
+}
+
+.recipeName {
+	width: 500px;
+}
+
+.selectList {
+	display: block;
+	width: 100px;
+}

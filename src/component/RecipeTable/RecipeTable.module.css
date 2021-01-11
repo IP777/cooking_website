@@ -1,0 +1,31 @@
+.table {
+	width: 500px;
+}
+
+caption {
+	text-align: left;
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+tr:nth-child(2n) {
+	background-color: var(--gray-light-2-color);
+}
+
+tr > td:nth-child(1) {
+	text-align: center;
+	font-weight: 600;
+}
+
+tr > td:nth-child(2) {
+	width: 400px;
+}
+
+tr > td:nth-child(3) {
+	text-align: right;
+}
+
+td {
+	padding: 5px;
+}

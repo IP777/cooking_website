@@ -1,3 +1,9 @@
 .list {
 	margin: 15px;
 }
+
+.btnFloat {
+	position: fixed;
+	right: 20px;
+	bottom: 50px;
+}

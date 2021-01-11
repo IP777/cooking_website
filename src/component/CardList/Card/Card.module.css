@@ -9,7 +9,7 @@
 
 .img {
 	display: block;
-	/* height: 118px; */
+	height: 118px;
 	width: 170px;
 	border-radius: 3px 0 0 3px;
 	cursor: pointer;

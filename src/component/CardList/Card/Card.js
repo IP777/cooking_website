@@ -1,19 +1,19 @@
-import { useState } from "react";
 import style from "./Card.module.css";
+import { Link } from "react-router-dom";
 
-export default function Card({ name, ingridient, category, autor, mainImage }) {
-	const [recipeCount, setRecipeCount] = useState(30);
-
-	const imageHandelbars = () => {
-		console.log(name);
-	};
+export default function Card({
+	id,
+	name,
+	ingridient,
+	category,
+	autor,
+	mainImage,
+}) {
 	return (
 		<div className={style.wrapper}>
-			<img
-				className={style.img}
-				src={mainImage}
-				onClick={imageHandelbars}
-			></img>
+			<Link to={{ pathname: "/recipe", search: `?id=${id}` }}>
+				<img className={style.img} src={mainImage} alt="img" />
+			</Link>
 			<div className={style.listWrapper}>
 				<span className={style.receptName}>{name}:</span>
 				<ul className={style.list}>

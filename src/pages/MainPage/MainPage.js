@@ -2,8 +2,10 @@ import style from "./MainPage.module.css";
 import Search from "../../component/Search/Search";
 import RecipePanel from "../../component/RecipePanel/RecipePanel";
 import FilterPanel from "../../component/FilterPanel/FilterPanel";
-import Card from "../../component/Card/Card";
+import CardsList from "../../component/CardList/CardsList";
 import Header from "../../component/Header/Header";
+import { Button, Icon } from "react-materialize";
+import { Link } from "react-router-dom";
 
 import fakeDB from "../../assets/fakeDB/fakeDB.json";
 
@@ -12,31 +14,19 @@ export default function MainPage() {
 		<>
 			<Header />
 			<Search />
-			<RecipePanel />
+			<RecipePanel length={fakeDB.length} />
 			<FilterPanel />
-			<ul className={style.list}>
-				{fakeDB.map(
-					({
-						_id,
-						recipe_name,
-						ingredients,
-						category,
-						autor,
-						main_image,
-					}) => (
-						<li key={_id}>
-							<Card
-								key={_id}
-								name={recipe_name}
-								ingridient={ingredients}
-								category={category}
-								autor={autor}
-								mainImage={main_image}
-							/>
-						</li>
-					)
-				)}
-			</ul>
+			<CardsList database={fakeDB} />
+			<Link to="/add" className={style.btnFloat}>
+				<Button
+					className="red"
+					floating
+					icon={<Icon>add</Icon>}
+					large
+					node="button"
+					waves="light"
+				/>
+			</Link>
 		</>
 	);
 }
