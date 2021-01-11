@@ -1,5 +1,4 @@
 import { useState } from "react";
-import throttle from "lodash.throttle";
 import { Button, Icon } from "react-materialize";
 import style from "./AddIngridientBlock.module.css";
 
