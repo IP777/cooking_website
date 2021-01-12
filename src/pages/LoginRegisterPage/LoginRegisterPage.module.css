@@ -1,5 +1,6 @@
 .wrapper {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	height: 100vh;
 }
@@ -13,12 +14,6 @@
 .headText {
 	display: block;
 	color: var(--red-color);
-}
-
-.btnWrapper {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
 }
 
 .formBtn {

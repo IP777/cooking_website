@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
-import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
+// import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
+import LoginRegisterPage from "./containers/LoginRegister";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import AddRecipePage from "./pages/AddReceptPage/AddRecipePage";
 

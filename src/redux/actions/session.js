@@ -3,7 +3,19 @@ import {
 	LOGIN_SUCCESS,
 	LOGIN_ERROR,
 	LOGOUT,
+	SET_USER_TOKEN,
+	SET_USER_EMAIL,
 } from "../constants/session";
+
+export const setUserToken = (payload) => ({
+	type: SET_USER_TOKEN,
+	payload,
+});
+
+export const setUserEmail = (payload) => ({
+	type: SET_USER_EMAIL,
+	payload,
+});
 
 export const loginRequest = () => ({
 	type: LOGIN_REQUEST,
