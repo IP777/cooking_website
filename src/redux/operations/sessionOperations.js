@@ -7,6 +7,7 @@ export const login = (credentials) => async (dispath) => {
 		if (!response.error) {
 			dispath(setUserToken(response.token));
 			dispath(setUserEmail(credentials.email));
+			localStorage.setItem("userData", JSON.stringify(response));
 		} else {
 			console.log(response.error);
 		}
