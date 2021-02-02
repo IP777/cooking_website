@@ -6,38 +6,28 @@ import M from "materialize-css";
 import LoginLinkBlock from "../../component/LoginLinkBlock/LoginLinkBlock";
 
 export default function LoginRegisterPage({ onLogin }) {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [name, setName] = useState("");
+	const [user, setUser] = useState({ name: "", email: "", password: "" });
 
 	const registerPage = window.location.pathname.includes("registration");
 	const loginPage = window.location.pathname.includes("login");
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		//console.log(email, password, name);
+		// console.log(user);
 		if (registerPage) {
 			console.log("registerPage");
 		} else if (loginPage) {
 			const response = {
-				email: email,
-				password: password,
+				email: user.email,
+				password: user.password,
 			};
 			onLogin(response);
 		}
+		setUser({ name: "", email: "", password: "" });
 	};
 
 	const handlerChange = (e) => {
-		const target = e.target.id;
-		const targetValue = e.target.value;
-
-		if (target === "email") {
-			setEmail(targetValue);
-		} else if (target === "password") {
-			setPassword(targetValue);
-		} else if (target === "name") {
-			setName(targetValue);
-		}
+		setUser({ ...user, [e.target.id]: e.target.value });
 	};
 
 	return (
@@ -50,20 +40,20 @@ export default function LoginRegisterPage({ onLogin }) {
 					<TextInput
 						id="name"
 						label="Имя"
-						value={name}
+						value={user.name}
 						onChange={handlerChange}
 					/>
 				)}
 				<TextInput
 					id="email"
 					label="Email"
-					value={email}
+					value={user.email}
 					onChange={handlerChange}
 				/>
 				<TextInput
 					id="password"
 					label="Пароль"
-					value={password}
+					value={user.password}
 					onChange={handlerChange}
 				/>
 				{registerPage && (

@@ -4,18 +4,27 @@ import MainPage from "./pages/MainPage/MainPage";
 import LoginRegisterPage from "./containers/LoginRegister";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import AddRecipePage from "./pages/AddReceptPage/AddRecipePage";
+import PrivateRoute from "./component/PrivateRoute/PrivateRoute";
+import GuestRoute from "./component/GuestRoute/GuestRoute";
+import Guard from "./component/Guard/Guard";
 
 export default function App() {
 	return (
-		<div>
+		<Guard>
 			<Switch>
 				<Route exact path="/" component={MainPage} />
-				<Route path="/login" component={LoginRegisterPage} />
-				<Route path="/registration" component={LoginRegisterPage} />
+				<GuestRoute path="/login">
+					<Route component={LoginRegisterPage} />
+				</GuestRoute>
+				<GuestRoute path="/registration">
+					<Route component={LoginRegisterPage} />
+				</GuestRoute>
 				<Route path="/recipe" component={RecipePage} />
-				<Route path="/add" component={AddRecipePage} />
+				<PrivateRoute path="/add">
+					<Route component={AddRecipePage} />
+				</PrivateRoute>
 				<Redirect to="/" />
 			</Switch>
-		</div>
+		</Guard>
 	);
 }

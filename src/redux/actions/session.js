@@ -5,7 +5,14 @@ import {
 	LOGOUT,
 	SET_USER_TOKEN,
 	SET_USER_EMAIL,
+	SET_USER_NAME,
+	SET_IS_LOADED,
 } from "../constants/session";
+
+export const isLoaded = (payload) => ({
+	type: SET_IS_LOADED,
+	payload,
+});
 
 export const setUserToken = (payload) => ({
 	type: SET_USER_TOKEN,
@@ -14,6 +21,11 @@ export const setUserToken = (payload) => ({
 
 export const setUserEmail = (payload) => ({
 	type: SET_USER_EMAIL,
+	payload,
+});
+
+export const setUserName = (payload) => ({
+	type: SET_USER_NAME,
 	payload,
 });
 

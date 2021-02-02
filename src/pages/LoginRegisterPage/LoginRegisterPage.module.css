@@ -2,12 +2,12 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	height: 100vh;
 }
 
 .form {
 	width: 300px;
 	margin-top: 80px;
+	margin-bottom: 15px;
 	text-align: center;
 }
 
