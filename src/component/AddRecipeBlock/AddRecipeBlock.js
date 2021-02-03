@@ -1,12 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import shortid from "shortid";
 import style from "./AddRecipeBlock.module.css";
 import { Button, Icon } from "react-materialize";
 
-export default function AddRecipeBlock() {
+const imagePlaceholder =
+	"http://placehold.it/200/EEEEEE/?text=Coocking+website";
+
+export default function AddRecipeBlock({ getRecipeStep, defaultValue }) {
 	const [recipeStep, setRecipeStep] = useState([
-		{ id: 0, stepText: "", imageUrl: "", add: false },
-		{ id: 1, stepText: "", imageUrl: "", add: true },
+		{
+			id: "0",
+			stepText: "",
+			imageUrl: imagePlaceholder,
+			add: false,
+		},
+		{
+			id: "1",
+			stepText: "",
+			imageUrl: imagePlaceholder,
+			add: true,
+		},
 	]);
+
+	useEffect(() => {
+		if (defaultValue.length > 0) {
+			setRecipeStep(defaultValue);
+		}
+	}, [getRecipeStep, defaultValue]);
 
 	const handelbarAdd = () => {
 		const modIngridients = recipeStep.map((iter) => ({
@@ -17,8 +37,7 @@ export default function AddRecipeBlock() {
 		setRecipeStep([
 			...modIngridients,
 			{
-				id: modIngridients.length,
-				ingridient: "",
+				id: shortid.generate(),
 				count: 0,
 				add: true,
 			},
@@ -26,28 +45,24 @@ export default function AddRecipeBlock() {
 	};
 
 	const handelbarRemove = (e) => {
-		const getId = Number(e.target.parentElement.parentElement.id);
+		const getId = e.target.parentElement.parentElement.id;
 		const filterArr = recipeStep.filter((iter) => iter.id !== getId);
+
 		setRecipeStep(filterArr);
+		getRecipeStep(filterArr);
 	};
 
 	const handelbarChangeRecipe = (e) => {
-		const getId = Number(e.target.parentElement.id);
-		const getValue = e.target.value;
-		const getType = e.target.name;
+		const getId = e.target.parentElement.id;
 
-		const modIngridients = recipeStep.map((iter) => {
-			if (iter.id === getId) {
-				if (getType === "img_url") {
-					return { ...iter, stepText: getValue };
-				}
-				return { ...iter, imageUrl: getValue };
-			} else {
-				return iter;
-			}
-		});
+		const modRecipeArr = recipeStep.map((recipe) =>
+			getId === recipe.id
+				? { ...recipe, [e.target.name]: e.target.value }
+				: recipe
+		);
 
-		setRecipeStep(modIngridients);
+		setRecipeStep(modRecipeArr);
+		getRecipeStep(modRecipeArr);
 	};
 
 	return (
@@ -56,19 +71,31 @@ export default function AddRecipeBlock() {
 			<div className={style.recipeStepWrapper}>
 				{recipeStep.map(({ add, id, stepText, imageUrl }, index) => (
 					<div id={id} key={index} className={style.recipeStepBlock}>
+						<div className={style.imgWrapper}>
+							<img
+								alt={imageUrl}
+								src={imageUrl}
+								className={style.img}
+							/>
+						</div>
+
 						<input
-							name="img_url"
+							name="stepText"
 							type="text"
-							placeholder="Ссылка на изображение"
+							placeholder="Теkст..."
 							onChange={handelbarChangeRecipe}
 							value={stepText}
 						/>
 						<input
-							name="text"
+							name="imageUrl"
 							type="text"
-							placeholder="Теkст..."
+							placeholder="Ссылка на изображение"
 							onChange={handelbarChangeRecipe}
-							value={imageUrl}
+							value={
+								imageUrl.includes("placehold.it")
+									? ""
+									: imageUrl
+							}
 						/>
 						{add ? (
 							<Button

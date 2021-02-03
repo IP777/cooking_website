@@ -1,29 +1,54 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { history } from "react-router-dom";
 import style from "./LoginRegisterPage.module.css";
 import { TextInput, Button } from "react-materialize";
 import M from "materialize-css";
 
 import LoginLinkBlock from "../../component/LoginLinkBlock/LoginLinkBlock";
 
-export default function LoginRegisterPage({ onLogin }) {
-	const [user, setUser] = useState({ name: "", email: "", password: "" });
+export default function LoginRegisterPage({ history, login, registration }) {
+	const [user, setUser] = useState({
+		name: "",
+		email: "",
+		password: "",
+		repeatPassword: "",
+	});
 
 	const registerPage = window.location.pathname.includes("registration");
 	const loginPage = window.location.pathname.includes("login");
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		// console.log(user);
+		//console.log(user);
 		if (registerPage) {
-			console.log("registerPage");
+			if (user.password === user.repeatPassword) {
+				registration({
+					name: user.name,
+					email: user.email,
+					password: user.password,
+				});
+				//Если все ок перебрасываем на страничку логинизации
+				history.push({
+					pathname: "/login",
+					state: { fromDashboard: true },
+				});
+
+				toast.success("Войдите под своим аккаунтом");
+			} else {
+				toast.error("Вы ввели неправельный пароль");
+			}
 		} else if (loginPage) {
-			const response = {
+			login({
 				email: user.email,
 				password: user.password,
-			};
-			onLogin(response);
+			});
+
+			setUser({ name: "", email: "", password: "", repeatPassword: "" });
+
+			toast(`Добро пожаловать!`);
 		}
-		setUser({ name: "", email: "", password: "" });
 	};
 
 	const handlerChange = (e) => {
@@ -57,7 +82,12 @@ export default function LoginRegisterPage({ onLogin }) {
 					onChange={handlerChange}
 				/>
 				{registerPage && (
-					<TextInput id="TextInput-4" label="Повторить пароль" />
+					<TextInput
+						id="repeatPassword"
+						value={user.repeatPassword}
+						label="Повторить пароль"
+						onChange={handlerChange}
+					/>
 				)}
 				<Button
 					className={style.formBtn + " red darken-1"}

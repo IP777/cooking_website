@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
-import { login } from "../redux/operations/sessionOperations";
+import { login, registration } from "../redux/operations/sessionOperations";
 import LoginRegisterPage from "../pages/LoginRegisterPage/LoginRegisterPage";
 
 const mapDispatchToProps = {
-	onLogin: login,
+	login,
+	registration,
 };
 
 export default connect(null, mapDispatchToProps)(LoginRegisterPage);

@@ -13,6 +13,14 @@
 	margin-bottom: 20px;
 }
 
+.imgWrapper {
+	display: flex;
+	justify-content: center;
+}
+.mainImage {
+	height: 200px;
+}
+
 .addRecipeHeader {
 	display: flex;
 	justify-content: space-between;

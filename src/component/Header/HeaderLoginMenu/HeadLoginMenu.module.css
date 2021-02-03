@@ -10,3 +10,30 @@
 .selected_link_in {
 	color: var(--red-light-2-color);
 }
+
+/* .userListMenu {
+	font-size: 14px;
+	font-weight: 400;
+	font-family: "Roboto";
+	color: var(--dark-4-color);
+} */
+
+.userName {
+	color: var(--dark-4-color);
+}
+
+.exitBtn {
+	color: var(--red-color);
+	border: 0;
+	background-color: rgba(255, 255, 255, 0);
+	font-weight: 600;
+	font-size: 17px;
+}
+
+.exitBtn:hover {
+	color: var(--red-light-3-color);
+}
+
+.exitBtn:active {
+	color: var(--gray);
+}

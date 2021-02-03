@@ -9,57 +9,118 @@ import CustomSelect from "../../assets/customSelect/CustomSelect";
 import CustomSubmitButton from "../../assets/customSubmitButton/CustomSubmitButton";
 
 import style from "./AddRecipePage.module.css";
+import { fakeRecipe } from "../../assets/fakeDB/fakeRecipe";
+
+const arr = [
+	{ id: "tort", name: "Торт" },
+	{ id: "salat", name: "Салаты" },
+	{ id: "sladkoe", name: "Сладкое" },
+];
+
+const imagePlaceholder =
+	"http://placehold.it/200/EEEEEE/?text=Coocking+website";
 
 export default function AddRecipePage() {
-	const [option, setOption] = useState([
-		{ id: "tort", name: "Торт", select: true },
-		{ id: "salat", name: "Салаты", select: false },
-		{ id: "sladkoe", name: "Сладкое", select: false },
-	]);
+	const [recipe, setRecipe] = useState({
+		category: "",
+		recipeName: "",
+		mainImageSrc: "",
+		description: "",
+		ingredients: [],
+		recipe: [],
+	});
+
+	const getRecipeCategory = (props) => {
+		setRecipe({ ...recipe, category: props.id });
+	};
+
+	const getRecipeIngredients = (props) => {
+		setRecipe({ ...recipe, ingredients: props });
+	};
+
+	const getRecipeStep = (props) => {
+		setRecipe({ ...recipe, recipe: props });
+	};
 
 	const handelSubmit = (e) => {
 		e.preventDefault();
-		console.log("submit");
+		console.log(recipe);
 	};
 
-	const handelSelect = (e) => {
-		e.preventDefault();
-		const selected = e.target.value;
-		const newOptionArr = option.map((iter) => {
-			if (iter.id === selected) {
-				return { ...iter, select: true };
-			} else {
-				return { ...iter, select: false };
-			}
-		});
-		setOption(newOptionArr);
+	const handlerChange = (e) => {
+		setRecipe({ ...recipe, [e.target.id]: e.target.value });
+	};
+
+	const handlerFake = () => {
+		setRecipe(fakeRecipe);
 	};
 
 	return (
 		<>
+			<input
+				type="button"
+				value="Fake recipe"
+				onClick={handlerFake}
+				style={{
+					position: "fixed",
+					zIndex: 100,
+					right: 10,
+					bottom: 10,
+					height: 30,
+				}}
+			/>
 			<Header />
 			<div className={style.wrapper}>
 				<form className={style.secondWrapper} onSubmit={handelSubmit}>
 					<h4 className={style.headTitle}>Рецепт блюда</h4>
+					<div className={style.imgWrapper}>
+						<img
+							alt={recipe.mainImageSrc}
+							src={
+								recipe.mainImageSrc === ""
+									? imagePlaceholder
+									: recipe.mainImageSrc
+							}
+							className={style.mainImage}
+						/>
+					</div>
 					<div className={style.addRecipeHeader}>
 						<CustomInput
 							text={"Название блюда"}
 							className={style.recipeName}
+							id="recipeName"
+							onChange={handlerChange}
+							value={recipe.recipeName}
 						/>
 						<CustomSelect
 							className={style.selectList}
-							optionArray={option}
-							onSelect={handelSelect}
+							optionArray={arr}
+							select="salat"
+							SelectedItem={getRecipeCategory}
 						/>
 					</div>
 					<CustomInput
 						text={"Ссылка на изображение"}
 						className={style.recipeName}
+						id="mainImageSrc"
+						onChange={handlerChange}
+						value={recipe.mainImageSrc}
 					/>
-					<CustomTextarea text="Описание" />
-					<AddIngridientBlock />
+					<CustomTextarea
+						text="Описание"
+						id="description"
+						onChange={handlerChange}
+						value={recipe.description}
+					/>
+					<AddIngridientBlock
+						getRecipeIngredients={getRecipeIngredients}
+						defaultValue={recipe.ingredients}
+					/>
+					<AddRecipeBlock
+						getRecipeStep={getRecipeStep}
+						defaultValue={recipe.recipe}
+					/>
 					<div className={style.footer}>
-						<AddRecipeBlock />
 						<CustomSubmitButton text="Добавить рецепт" />
 					</div>
 				</form>

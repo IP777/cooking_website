@@ -1,13 +1,36 @@
+import { useState } from "react";
 import style from "./CustomSelect.module.css";
 
 export default function CustomSelect({
 	className,
 	optionArray,
+	select,
+	SelectedItem,
 	styleOption,
-	onSelect,
 	name,
 }) {
-	const defaultValue = optionArray.find((iter) => iter.select).id;
+	const addSelectToArray = optionArray.map((iter) => ({
+		id: iter.id,
+		name: iter.name,
+		select: iter.id === select ? true : false,
+	}));
+
+	const [option, setOption] = useState(addSelectToArray);
+	const defaultValue = option.find((iter) => iter.select).id;
+
+	const handelSelect = (e) => {
+		e.preventDefault();
+
+		const newOptionArr = option.map((iter) => ({
+			id: iter.id,
+			name: iter.name,
+			select: iter.id === e.target.value ? true : false,
+		}));
+
+		setOption(newOptionArr);
+
+		SelectedItem(newOptionArr.find((i) => i.select));
+	};
 
 	return (
 		<label>
@@ -15,7 +38,7 @@ export default function CustomSelect({
 			<select
 				className={className + " " + style.select}
 				value={defaultValue}
-				onChange={onSelect}
+				onChange={handelSelect}
 			>
 				{optionArray.map(({ id, name, select }) => {
 					if (select) {
