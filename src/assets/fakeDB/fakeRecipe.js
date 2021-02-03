@@ -5,14 +5,14 @@ export const fakeRecipe = {
 	description:
 		"Салат из пекинской капусты с крабовыми палочками - один из популярных салатов на нашем столе. Блюдо имеет приятный свежий вкус. Такой салат никого не оставит равнодушным.",
 	ingredients: [
-		{ id: "0", ingridient: "Пекинская капуста", count: "500гр" },
-		{ id: "1", ingridient: "Крабовые палочки", count: "200гр" },
-		{ id: "2", ingridient: "Варёное куриное яйцо", count: "3" },
-		{ id: "3", ingridient: "Банка кукурузы", count: "0.5" },
-		{ id: "4", ingridient: "Пучёк укропа", count: "0.5" },
-		{ id: "5", ingridient: "Маёнез", count: "2" },
-		{ id: "6", ingridient: "Сметана", count: "2" },
-		{ id: "7", ingridient: "Чеснок", count: "1" },
+		{ id: "0", ingridient: "Пекинская капуста", count: "500 гр" },
+		{ id: "1", ingridient: "Крабовые палочки", count: "200 гр" },
+		{ id: "2", ingridient: "Варёное куриное яйцо", count: "3 шт" },
+		{ id: "3", ingridient: "Банка кукурузы", count: "1/2 банки" },
+		{ id: "4", ingridient: "Пучёк укропа", count: "1/2 банки" },
+		{ id: "5", ingridient: "Маёнез", count: "2 ст.ложки" },
+		{ id: "6", ingridient: "Сметана", count: "2 ст.ложки" },
+		{ id: "7", ingridient: "Чеснок", count: "1 зубчик" },
 		{ id: "8", ingridient: "Черный молотый перец.", count: "" },
 	],
 	recipe: [

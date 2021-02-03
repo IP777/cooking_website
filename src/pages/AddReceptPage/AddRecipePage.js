@@ -12,7 +12,7 @@ import style from "./AddRecipePage.module.css";
 import { fakeRecipe } from "../../assets/fakeDB/fakeRecipe";
 
 const arr = [
-	{ id: "tort", name: "Торт" },
+	{ id: "sup", name: "Супы" },
 	{ id: "salat", name: "Салаты" },
 	{ id: "sladkoe", name: "Сладкое" },
 ];
