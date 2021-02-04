@@ -5,11 +5,11 @@ export default function RecipeTable({ ingridients }) {
 		<table className={style.table}>
 			<caption>Продукты :</caption>
 			<tbody>
-				{ingridients.map(({ name, amount }) => (
-					<tr key={name}>
-						<td>1</td>
-						<td>{name}</td>
-						<td>{amount} гр</td>
+				{ingridients.map(({ ingridient, count }, index) => (
+					<tr key={index}>
+						<td>{index + 1}</td>
+						<td>{ingridient}</td>
+						<td>{count}</td>
 					</tr>
 				))}
 			</tbody>

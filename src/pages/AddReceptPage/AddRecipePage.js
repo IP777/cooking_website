@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 import Header from "../../component/Header/Header";
 import AddIngridientBlock from "../../component/AddIngridientBlock/AddIngridientBlock";
@@ -15,12 +16,13 @@ const arr = [
 	{ id: "sup", name: "Супы" },
 	{ id: "salat", name: "Салаты" },
 	{ id: "sladkoe", name: "Сладкое" },
+	{ id: "meat&chicken", name: "Мясо и птица" },
 ];
 
 const imagePlaceholder =
 	"http://placehold.it/200/EEEEEE/?text=Coocking+website";
 
-export default function AddRecipePage() {
+export default function AddRecipePage({ history, userToken, postRecipe }) {
 	const [recipe, setRecipe] = useState({
 		category: "",
 		recipeName: "",
@@ -31,7 +33,7 @@ export default function AddRecipePage() {
 	});
 
 	const getRecipeCategory = (props) => {
-		setRecipe({ ...recipe, category: props.id });
+		setRecipe({ ...recipe, category: props.name });
 	};
 
 	const getRecipeIngredients = (props) => {
@@ -44,7 +46,23 @@ export default function AddRecipePage() {
 
 	const handelSubmit = (e) => {
 		e.preventDefault();
-		console.log(recipe);
+	};
+
+	const handelAddRecipe = (e) => {
+		const createRecipe = {
+			main_image_src: recipe.mainImageSrc,
+			recipe_name: recipe.recipeName,
+			category: recipe.category,
+			description: recipe.description,
+			ingredients: recipe.ingredients,
+			recipe: recipe.recipe,
+		};
+		//console.log(createRecipe.recipe);
+		postRecipe({ createRecipe, userToken });
+		toast("Вуху рецепт добавлен )))");
+		history.push({
+			pathname: "/",
+		});
 	};
 
 	const handlerChange = (e) => {
@@ -121,7 +139,10 @@ export default function AddRecipePage() {
 						defaultValue={recipe.recipe}
 					/>
 					<div className={style.footer}>
-						<CustomSubmitButton text="Добавить рецепт" />
+						<CustomSubmitButton
+							onClick={handelAddRecipe}
+							text="Добавить рецепт"
+						/>
 					</div>
 				</form>
 			</div>

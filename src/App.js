@@ -1,9 +1,9 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import MainPage from "./pages/MainPage/MainPage";
+import MainPage from "./containers/MainPage";
 import LoginRegisterPage from "./containers/LoginRegister";
-import RecipePage from "./pages/RecipePage/RecipePage";
-import AddRecipePage from "./pages/AddReceptPage/AddRecipePage";
+import RecipePage from "./containers/RecipePage";
+import AddRecipePage from "./containers/AddRecipePage";
 import PrivateRoute from "./component/PrivateRoute/PrivateRoute";
 import GuestRoute from "./component/GuestRoute/GuestRoute";
 import Guard from "./component/Guard/Guard";

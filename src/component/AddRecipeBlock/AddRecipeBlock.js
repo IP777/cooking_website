@@ -38,7 +38,8 @@ export default function AddRecipeBlock({ getRecipeStep, defaultValue }) {
 			...modIngridients,
 			{
 				id: shortid.generate(),
-				count: 0,
+				stepText: "",
+				imageUrl: imagePlaceholder,
 				add: true,
 			},
 		]);

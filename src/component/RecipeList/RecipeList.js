@@ -5,17 +5,17 @@ export default function RecipeList({ list }) {
 		<div className={style.recipe}>
 			<h5>Пошаговое приготовление</h5>
 			<ul>
-				{list.map(({ image_path, step_text }, index) => (
+				{list.map(({ imageUrl, stepText }, index) => (
 					<li className={style.li} key={index}>
-						{image_path && (
+						{imageUrl && (
 							<img
 								className={style.img}
-								src={image_path}
+								src={imageUrl}
 								alt="img"
 							/>
 						)}
 						<p>
-							{index + 1}. {step_text}
+							{index + 1}. {stepText}
 						</p>
 					</li>
 				))}

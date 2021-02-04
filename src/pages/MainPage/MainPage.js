@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import style from "./MainPage.module.css";
 import Search from "../../component/Search/Search";
 import RecipePanel from "../../component/RecipePanel/RecipePanel";
@@ -7,16 +8,18 @@ import Header from "../../component/Header/Header";
 import { Button, Icon } from "react-materialize";
 import { Link } from "react-router-dom";
 
-import fakeDB from "../../assets/fakeDB/fakeDB.json";
+export default function MainPage({ recipes, getAllrecipes }) {
+	useEffect(() => {
+		getAllrecipes();
+	}, []);
 
-export default function MainPage() {
 	return (
 		<>
 			<Header />
 			<Search />
-			<RecipePanel length={fakeDB.length} />
+			<RecipePanel length={recipes.length} />
 			<FilterPanel />
-			<CardsList database={fakeDB} />
+			<CardsList database={recipes} />
 			<Link to="/add" className={style.btnFloat}>
 				<Button
 					className="red"

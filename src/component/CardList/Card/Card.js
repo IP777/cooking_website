@@ -17,10 +17,10 @@ export default function Card({
 			<div className={style.listWrapper}>
 				<span className={style.receptName}>{name}:</span>
 				<ul className={style.list}>
-					{ingridient.map(({ name, amount }) => (
-						<li key={name} className={style.item}>
-							<span className={style.itemName}>{name}</span>
-							<span className={style.itemAmount}>{amount}гр</span>
+					{ingridient.map(({ ingridient, count }, index) => (
+						<li key={index} className={style.item}>
+							<span className={style.itemName}>{ingridient}</span>
+							<span className={style.itemAmount}>{count}</span>
 						</li>
 					))}
 				</ul>

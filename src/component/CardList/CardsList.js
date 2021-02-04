@@ -11,17 +11,16 @@ export default function CardsList({ database }) {
 					ingredients,
 					category,
 					autor,
-					main_image,
+					main_image_src,
 				}) => (
 					<li key={_id}>
 						<Card
-							key={_id}
 							id={_id}
 							name={recipe_name}
 							ingridient={ingredients}
 							category={category}
 							autor={autor}
-							mainImage={main_image}
+							mainImage={main_image_src}
 						/>
 					</li>
 				)

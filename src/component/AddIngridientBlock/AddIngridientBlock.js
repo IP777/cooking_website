@@ -52,7 +52,6 @@ export default function AddIngridientBlock({
 				? { ...ingridient, [e.target.name]: e.target.value }
 				: ingridient
 		);
-		console.log(e.target.name);
 
 		setIngidients(modIngridientArr);
 		getRecipeIngredients(modIngridientArr);

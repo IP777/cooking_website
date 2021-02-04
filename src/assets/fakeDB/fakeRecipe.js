@@ -1,5 +1,5 @@
 export const fakeRecipe = {
-	category: "salat",
+	category: "Салаты",
 	recipeName: "Салат из пекинской капусты с крабовыми палочками",
 	mainImageSrc: "https://rutxt.ru/files/3869/d66ead05e4.jpg",
 	description:

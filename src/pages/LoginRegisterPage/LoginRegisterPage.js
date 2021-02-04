@@ -32,7 +32,6 @@ export default function LoginRegisterPage({ history, login, registration }) {
 				//Если все ок перебрасываем на страничку логинизации
 				history.push({
 					pathname: "/login",
-					state: { fromDashboard: true },
 				});
 
 				toast.success("Войдите под своим аккаунтом");

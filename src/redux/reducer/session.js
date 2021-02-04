@@ -30,4 +30,5 @@ export default function user(state = initialState, { type, payload }) {
 
 export const isLoggedInSelector = (state) => Boolean(state.session.userToken);
 export const getUser = (state) => state.session;
+export const getUserToken = (state) => state.session.userToken;
 export const isLoadedSelector = (state) => state.session.isLoaded;
