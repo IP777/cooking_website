@@ -2,7 +2,10 @@ import { NavLink, Link } from "react-router-dom";
 import style from "./Header.module.css";
 import HeaderLoginMenu from "../../containers/HeadLoginMenu";
 
-export default function Header() {
+import { connect } from "react-redux";
+import { isLoadedSelector } from "../../redux/reducer/session";
+
+function Header({ isLoaded }) {
 	return (
 		<nav>
 			<div className="nav-wrapper grey lighten-5">
@@ -26,17 +29,25 @@ export default function Header() {
 							Главная
 						</NavLink>
 					</li>
-					<li>
-						<NavLink
-							to="/myrecipe"
-							className={style.selected_link}
-							activeClassName={style.selected_link_in}
-						>
-							Мои рецепты
-						</NavLink>
-					</li>
+					{isLoaded && (
+						<li>
+							<NavLink
+								to="/myrecipe"
+								className={style.selected_link}
+								activeClassName={style.selected_link_in}
+							>
+								Мои рецепты
+							</NavLink>
+						</li>
+					)}
 				</ul>
 			</div>
 		</nav>
 	);
 }
+
+const mapStateToProps = (state) => ({
+	isLoaded: isLoadedSelector(state),
+});
+
+export default connect(mapStateToProps)(Header);

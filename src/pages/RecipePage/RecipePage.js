@@ -1,18 +1,51 @@
 import { useEffect } from "react";
 import queryString from "query-string";
+import { toast } from "react-toastify";
 import style from "./RecipePage.module.css";
 import Header from "../../component/Header/Header";
 import RecipeTable from "../../component/RecipeTable/RecipeTable";
 import RecipeList from "../../component/RecipeList/RecipeList";
 import { Button, Icon } from "react-materialize";
 
-export default function RecipePage({ location, fetchRecipe, getRecipeFromID }) {
+export default function RecipePage({
+	location,
+	fetchRecipe,
+	getRecipeStatus,
+	recipeStatus,
+	getRecipe,
+	userName,
+	userToken,
+	getRecipeFromID,
+	deleteRecipeFromID,
+	history,
+}) {
 	// default props from reactrouter
 	const getRecipeId = queryString.parse(location.search).id;
 
 	useEffect(() => {
 		getRecipeFromID(getRecipeId);
+		// componentWillUnmount()
+		return () => {
+			recipeStatus("");
+			getRecipe("");
+		};
 	}, []);
+
+	const deleteHandelbar = () => {
+		deleteRecipeFromID({ id: getRecipeId, userToken });
+		toast("Рецепт удалён..");
+		history.push({
+			pathname: "/",
+		});
+	};
+
+	const editHandelbar = () => {
+		recipeStatus("");
+		history.push({
+			pathname: "/update",
+			state: { sendingRecipe: fetchRecipe },
+		});
+	};
 
 	return (
 		<>
@@ -39,25 +72,31 @@ export default function RecipePage({ location, fetchRecipe, getRecipeFromID }) {
 								ingridients={fetchRecipe.ingredients}
 							/>
 							<RecipeList list={fetchRecipe.recipe} />
-							<div className={style.btnWrapper}>
-								<Button
-									className={style.btnEdit + " red"}
-									floating
-									icon={<Icon>edit</Icon>}
-									large
-									node="button"
-									waves="light"
-								/>
-								<Button
-									className="red"
-									floating
-									icon={<Icon>delete</Icon>}
-									large
-									node="button"
-									waves="light"
-								/>
-							</div>
 						</div>
+						<footer className={style.btnWrapper}>
+							{userName === fetchRecipe.autor && (
+								<>
+									<Button
+										className={style.btnEdit + " red"}
+										floating
+										icon={<Icon>edit</Icon>}
+										large
+										node="button"
+										waves="light"
+										onClick={editHandelbar}
+									/>
+									<Button
+										className="red"
+										floating
+										icon={<Icon>delete</Icon>}
+										large
+										node="button"
+										waves="light"
+										onClick={deleteHandelbar}
+									/>
+								</>
+							)}
+						</footer>
 					</div>
 				</>
 			)}

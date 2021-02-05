@@ -18,3 +18,4 @@ export default function recipe(state = initialState, { type, payload }) {
 }
 
 export const loadRecipe = (state) => state.recipe.loadRecipe;
+export const getRecipeStatus = (state) => state.recipe.recipeStatus;

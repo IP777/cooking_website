@@ -10,12 +10,12 @@ export const getAllRecipes = (payload) => ({
 	payload,
 });
 
-export const getAllUserRecipes = (payload) => ({
+export const allUserRecipes = (payload) => ({
 	type: GET_ALL_USER_CONTENT,
 	payload,
 });
 
-export const getRecipes = (payload) => ({
+export const getRecipe = (payload) => ({
 	type: GET_CONTENT,
 	payload,
 });

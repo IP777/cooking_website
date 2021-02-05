@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import Header from "../../component/Header/Header";
@@ -22,7 +22,14 @@ const arr = [
 const imagePlaceholder =
 	"http://placehold.it/200/EEEEEE/?text=Coocking+website";
 
-export default function AddRecipePage({ history, userToken, postRecipe }) {
+export default function AddRecipePage({
+	history,
+	location,
+	recipeStatus,
+	getRecipeStatus,
+	userToken,
+	postRecipe,
+}) {
 	const [recipe, setRecipe] = useState({
 		category: "",
 		recipeName: "",
@@ -48,7 +55,7 @@ export default function AddRecipePage({ history, userToken, postRecipe }) {
 		e.preventDefault();
 	};
 
-	const handelAddRecipe = (e) => {
+	const handelAddRecipe = () => {
 		const createRecipe = {
 			main_image_src: recipe.mainImageSrc,
 			recipe_name: recipe.recipeName,
@@ -57,13 +64,41 @@ export default function AddRecipePage({ history, userToken, postRecipe }) {
 			ingredients: recipe.ingredients,
 			recipe: recipe.recipe,
 		};
-		//console.log(createRecipe.recipe);
-		postRecipe({ createRecipe, userToken });
-		toast("Вуху рецепт добавлен )))");
-		history.push({
-			pathname: "/",
-		});
+
+		if (location.pathname.includes("add")) {
+			postRecipe({ createRecipe, userToken });
+		} else if (location.pathname.includes("update")) {
+			console.log("update recipe");
+		}
 	};
+
+	useEffect(() => {
+		if (getRecipeStatus.message) {
+			toast("Рецепт добавлен...");
+			history.push({
+				pathname: "/",
+			});
+		} else if (getRecipeStatus.error) {
+			toast(getRecipeStatus.error);
+		}
+		return () => {
+			recipeStatus("");
+		};
+	}, [getRecipeStatus]);
+
+	useEffect(() => {
+		if (location.state) {
+			const sendingRecipe = location.state.sendingRecipe;
+			setRecipe({
+				category: sendingRecipe.category,
+				recipeName: sendingRecipe.recipe_name,
+				mainImageSrc: sendingRecipe.main_image_src,
+				description: sendingRecipe.description,
+				ingredients: sendingRecipe.ingredients,
+				recipe: sendingRecipe.recipe,
+			});
+		}
+	}, []);
 
 	const handlerChange = (e) => {
 		setRecipe({ ...recipe, [e.target.id]: e.target.value });

@@ -34,6 +34,12 @@ export default function App() {
 				<PrivateRoute path="/add">
 					<Route component={AddRecipePage} />
 				</PrivateRoute>
+				<PrivateRoute path="/update">
+					<Route component={AddRecipePage} />
+				</PrivateRoute>
+				<PrivateRoute path="/myrecipe">
+					<Route component={MainPage} />
+				</PrivateRoute>
 				<Redirect to="/" />
 			</Switch>
 		</Guard>

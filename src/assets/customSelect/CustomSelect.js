@@ -18,10 +18,6 @@ export default function CustomSelect({
 	const [option, setOption] = useState(addSelectToArray);
 	const defaultValue = option.find((iter) => iter.select).id;
 
-	// useEffect(() => {
-
-	// }, [input])
-
 	const handelSelect = (e) => {
 		e.preventDefault();
 

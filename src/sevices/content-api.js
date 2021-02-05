@@ -11,6 +11,18 @@ export const getAllcontentRequestApi = () => {
 	});
 };
 
+export const getAlluserContentRequestApi = (userName) => {
+	console.log(userName);
+	return fetch(`${API_URL}/ricepes/user/${userName}`, {
+		method: "GET",
+	}).then((res) => {
+		if (res.ok) {
+			return res.json();
+		}
+		return res.json();
+	});
+};
+
 // prettier-ignore
 export const postRecipeRequestApi = ({ createRecipe, userToken }) => {
 	return fetch(`${API_URL}/ricepes/create`, {
@@ -22,7 +34,7 @@ export const postRecipeRequestApi = ({ createRecipe, userToken }) => {
 		body: JSON.stringify(createRecipe),
 	}).then((res) => {
 		if (res.ok) {
-			return res;
+			return res.json();
 		}
 		return res.json();
 	});
@@ -31,6 +43,21 @@ export const postRecipeRequestApi = ({ createRecipe, userToken }) => {
 export const getRecipeFromIDRequestApi = (id) => {
 	return fetch(`${API_URL}/ricepes/recipe/${id}`, {
 		method: "GET",
+	}).then((res) => {
+		if (res.ok) {
+			return res.json();
+		}
+		return res.json();
+	});
+};
+
+export const deleteRecipeFromIDRequestApi = ({ id, userToken }) => {
+	return fetch(`${API_URL}/ricepes/${id}`, {
+		method: "DELETE",
+		headers: {
+			Authorization: `Bearer ${userToken}`,
+			"Content-Type": "application/json",
+		},
 	}).then((res) => {
 		if (res.ok) {
 			return res.json();

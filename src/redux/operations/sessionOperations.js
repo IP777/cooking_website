@@ -4,6 +4,7 @@ import {
 	setUserName,
 	isLoaded,
 } from "../actions/session";
+import { allUserRecipes, getRecipe, recipeStatus } from "../actions/content";
 import {
 	loginRequestApi,
 	registrationRequestApi,
@@ -48,6 +49,9 @@ export const logout = (credentials) => async (dispatch) => {
 		dispatch(setUserToken(""));
 		dispatch(setUserEmail(""));
 		dispatch(setUserName(""));
+		dispatch(allUserRecipes([]));
+		dispatch(getRecipe({}));
+		dispatch(recipeStatus(""));
 
 		localStorage.removeItem(LOCAL_STORAGE_KEY);
 	} else {

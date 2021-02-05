@@ -18,3 +18,4 @@ export default function content(state = initialState, { type, payload }) {
 }
 
 export const allRecipes = (state) => state.content.allRecipes;
+export const allUserRecipes = (state) => state.content.allUserRecipes;

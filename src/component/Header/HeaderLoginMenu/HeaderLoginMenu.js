@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import style from "./HeadLoginMenu.module.css";
 
 export default function HeaderLoginMenu({ user, isLogin, logout }) {
-	//console.log(user);
 	const onLogout = () => {
 		logout({ email: user.userEmail });
 	};
