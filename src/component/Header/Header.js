@@ -3,7 +3,7 @@ import style from "./Header.module.css";
 import HeaderLoginMenu from "../../containers/HeadLoginMenu";
 
 import { connect } from "react-redux";
-import { isLoadedSelector } from "../../redux/reducer/session";
+import { isLoggedInSelector } from "../../redux/reducer/session";
 
 function Header({ isLoaded }) {
 	return (
@@ -47,7 +47,7 @@ function Header({ isLoaded }) {
 }
 
 const mapStateToProps = (state) => ({
-	isLoaded: isLoadedSelector(state),
+	isLoaded: isLoggedInSelector(state),
 });
 
 export default connect(mapStateToProps)(Header);
