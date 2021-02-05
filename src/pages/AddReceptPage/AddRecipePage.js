@@ -29,8 +29,10 @@ export default function AddRecipePage({
 	getRecipeStatus,
 	userToken,
 	postRecipe,
+	updateRecipe,
 }) {
 	const [recipe, setRecipe] = useState({
+		recipeID: "",
 		category: "",
 		recipeName: "",
 		mainImageSrc: "",
@@ -68,7 +70,8 @@ export default function AddRecipePage({
 		if (location.pathname.includes("add")) {
 			postRecipe({ createRecipe, userToken });
 		} else if (location.pathname.includes("update")) {
-			console.log("update recipe");
+			const recipeID = location.state.recipeID;
+			updateRecipe({ createRecipe, userToken, recipeID });
 		}
 	};
 

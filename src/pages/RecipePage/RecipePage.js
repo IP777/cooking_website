@@ -43,7 +43,7 @@ export default function RecipePage({
 		recipeStatus("");
 		history.push({
 			pathname: "/update",
-			state: { sendingRecipe: fetchRecipe },
+			state: { recipeID: getRecipeId, sendingRecipe: fetchRecipe },
 		});
 	};
 

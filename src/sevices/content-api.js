@@ -40,6 +40,23 @@ export const postRecipeRequestApi = ({ createRecipe, userToken }) => {
 	});
 };
 
+// prettier-ignore
+export const updateRecipeRequestApi = ({ createRecipe, userToken, recipeID }) => {
+	return fetch(`${API_URL}/ricepes/${recipeID}`, {
+		method: "PATH",
+		headers: {
+			"Authorization": `Bearer ${userToken}`,
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(createRecipe),
+	}).then((res) => {
+		if (res.ok) {
+			return res.json();
+		}
+		return res.json();
+	});
+};
+
 export const getRecipeFromIDRequestApi = (id) => {
 	return fetch(`${API_URL}/ricepes/recipe/${id}`, {
 		method: "GET",

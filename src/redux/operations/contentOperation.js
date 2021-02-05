@@ -51,6 +51,19 @@ export const postRecipe = (credential) => async (dispath) => {
 	}
 };
 
+export const updateRecipe = (credential) => async (dispath) => {
+	try {
+		const response = await postRecipeRequestApi(credential);
+		if (!response.error) {
+			dispath(recipeStatus({ message: "Recipe is update." }));
+		} else {
+			dispath(recipeStatus(response));
+		}
+	} catch (error) {
+		dispath(recipeStatus({ error: error.toString() }));
+	}
+};
+
 export const getRecipeFromID = (id) => async (dispath) => {
 	try {
 		const response = await getRecipeFromIDRequestApi(id);
