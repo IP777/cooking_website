@@ -68,13 +68,29 @@ export const getRecipeFromIDRequestApi = (id) => {
 	});
 };
 
+// prettier-ignore
 export const deleteRecipeFromIDRequestApi = ({ id, userToken }) => {
 	return fetch(`${API_URL}/ricepes/${id}`, {
 		method: "DELETE",
 		headers: {
-			Authorization: `Bearer ${userToken}`,
+			"Authorization": `Bearer ${userToken}`,
 			"Content-Type": "application/json",
 		},
+	}).then((res) => {
+		if (res.ok) {
+			return res.json();
+		}
+		return res.json();
+	});
+};
+
+export const getRecipeFromIngridientRequestApi = (ingridient) => {
+	return fetch(`${API_URL}/recipes/ingredient`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(ingridient),
 	}).then((res) => {
 		if (res.ok) {
 			return res.json();

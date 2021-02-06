@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { allRecipes, allUserRecipes } from "../redux/reducer/content";
+import { allRecipes } from "../redux/reducer/content";
 import { getUser } from "../redux/reducer/session";
 import {
 	getAllrecipes,
@@ -9,7 +9,6 @@ import MainPage from "../pages/MainPage/MainPage";
 
 const mapStateToProps = (state) => ({
 	recipes: allRecipes(state),
-	userRecipes: allUserRecipes(state),
 	user: getUser(state),
 });
 

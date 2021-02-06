@@ -1,13 +1,9 @@
-import {
-	getAllRecipes,
-	allUserRecipes,
-	recipeStatus,
-	getRecipe,
-} from "../actions/content";
+import { getAllRecipes, recipeStatus, getRecipe } from "../actions/content";
 import {
 	getAllcontentRequestApi,
 	getAlluserContentRequestApi,
 	getRecipeFromIDRequestApi,
+	getRecipeFromIngridientRequestApi,
 	deleteRecipeFromIDRequestApi,
 	postRecipeRequestApi,
 } from "../../sevices/content-api";
@@ -29,7 +25,7 @@ export const getAllUserRecipes = (userName) => async (dispath) => {
 	try {
 		const response = await getAlluserContentRequestApi(userName);
 		if (!response.error) {
-			dispath(allUserRecipes(response[0].userRecipes));
+			dispath(getAllRecipes(response[0].userRecipes));
 		} else {
 			console.log(response.error);
 		}
@@ -84,5 +80,19 @@ export const deleteRecipeFromID = (credential) => async (dispath) => {
 		}
 	} catch (error) {
 		dispath(recipeStatus({ error: error.toString() }));
+	}
+};
+
+export const searchForIngridientsRecipes = (ingridient) => async (dispath) => {
+	try {
+		const response = await getRecipeFromIngridientRequestApi(ingridient);
+		console.log(response);
+		// if (!response.error) {
+		// 	dispath(getAllRecipes(response));
+		// } else {
+		// 	console.log(response.error);
+		// }
+	} catch (error) {
+		throw new Error(error);
 	}
 };

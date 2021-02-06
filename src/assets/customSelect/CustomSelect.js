@@ -36,7 +36,9 @@ export default function CustomSelect({
 		<label>
 			{name}
 			<select
-				className={className + " " + style.select}
+				className={
+					className ? className + " " + style.select : style.select
+				}
 				value={defaultValue}
 				onChange={handelSelect}
 			>
@@ -45,7 +47,11 @@ export default function CustomSelect({
 						return (
 							<option
 								key={id}
-								className={style.option + " " + styleOption}
+								className={
+									styleOption
+										? styleOption + " " + style.option
+										: style.option
+								}
 								selected
 								value={id}
 							>
@@ -56,7 +62,11 @@ export default function CustomSelect({
 						return (
 							<option
 								key={id}
-								className={style.option + " " + styleOption}
+								className={
+									styleOption
+										? styleOption + " " + style.option
+										: style.option
+								}
 								value={id}
 							>
 								{name}

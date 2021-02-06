@@ -1,4 +1,5 @@
 .select {
+	display: block;
 	height: auto;
 	font-size: 16px;
 }

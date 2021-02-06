@@ -5,14 +5,40 @@
 }
 
 .textline {
-	width: 800px;
-	background-color: var(--gray-light-5-color);
-	margin-left: 15px;
+	background-color: var(--gray-light-5-color) !important;
+	color: var(--gray) !important;
+	margin-left: 15px !important;
+	margin-top: 10px !important;
+	padding-left: 15px !important;
+}
+
+.textline::placeholder {
+	color: var(--gray) !important;
+}
+
+.select {
+	margin-top: 10px;
+	height: 45px !important;
+	width: 140px;
+	margin-left: 10px;
+	text-align: center;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 }
 
 .serch_btn {
-	margin-top: 30px;
-	margin-left: 20px;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0);
+	border: 0;
+}
+
+.serch_btn:focus {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.serch_icon {
+	margin-top: 5px;
+	margin-left: 10px;
 	margin-right: 20px;
 	cursor: pointer;
 }

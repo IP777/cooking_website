@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import style from "./MainPage.module.css";
-import Search from "../../component/Search/Search";
+import Search from "../../containers/Search";
 import RecipePanel from "../../component/RecipePanel/RecipePanel";
 import FilterPanel from "../../component/FilterPanel/FilterPanel";
 import CardsList from "../../component/CardList/CardsList";
@@ -12,7 +12,6 @@ export default function MainPage({
 	location,
 	user,
 	recipes,
-	userRecipes,
 	getAllrecipes,
 	getAllUserRecipes,
 }) {
@@ -20,9 +19,10 @@ export default function MainPage({
 	const locatedIsMyPage = location.pathname.includes("myrecipe");
 
 	useEffect(() => {
-		getAllrecipes();
 		if (locatedIsMyPage) {
 			getAllUserRecipes(user.userName);
+		} else if (locatedIsHome) {
+			getAllrecipes();
 		}
 	}, []);
 
@@ -30,11 +30,9 @@ export default function MainPage({
 		<>
 			<Header />
 			<Search />
-			<RecipePanel
-				length={locatedIsHome ? recipes.length : userRecipes.length}
-			/>
+			<RecipePanel length={recipes.length} />
 			<FilterPanel />
-			<CardsList database={locatedIsHome ? recipes : userRecipes} />
+			<CardsList database={recipes} />
 			<Link to="/add" className={style.btnFloat}>
 				<Button
 					className="red"
