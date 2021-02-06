@@ -4,6 +4,7 @@ import {
 	getAlluserContentRequestApi,
 	getRecipeFromIDRequestApi,
 	getRecipeFromIngridientRequestApi,
+	getRecipeFromNameRequestApi,
 	deleteRecipeFromIDRequestApi,
 	postRecipeRequestApi,
 } from "../../sevices/content-api";
@@ -92,6 +93,20 @@ export const searchForIngridientsRecipes = (ingridient) => async (dispath) => {
 		// } else {
 		// 	console.log(response.error);
 		// }
+	} catch (error) {
+		throw new Error(error);
+	}
+};
+
+export const searchForNameRecipes = (recipe_name) => async (dispath) => {
+	try {
+		const response = await getRecipeFromNameRequestApi(recipe_name);
+		console.log(response);
+		if (!response.error) {
+			dispath(getAllRecipes(response));
+		} else {
+			console.log(response.error);
+		}
 	} catch (error) {
 		throw new Error(error);
 	}

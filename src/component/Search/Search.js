@@ -9,7 +9,10 @@ const arr = [
 	{ id: "category", name: "Категориям" },
 ];
 
-export default function Search({ searchForIngridientsRecipes }) {
+export default function Search({
+	searchForIngridientsRecipes,
+	searchForNameRecipes,
+}) {
 	const [text, setText] = useState("");
 	const [search, setSearch] = useState("ingridient");
 
@@ -19,8 +22,8 @@ export default function Search({ searchForIngridientsRecipes }) {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		console.log({ ingredient: text });
-		searchForIngridientsRecipes({ ingredient: text });
+		//console.log({ recipe_name: text });
+		searchForNameRecipes({ recipe_name: text });
 	};
 
 	const onChangeHandler = (e) => {

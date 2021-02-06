@@ -98,3 +98,18 @@ export const getRecipeFromIngridientRequestApi = (ingridient) => {
 		return res.json();
 	});
 };
+
+export const getRecipeFromNameRequestApi = (recipe_name) => {
+	return fetch(`${API_URL}/ricepes/name`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(recipe_name),
+	}).then((res) => {
+		if (res.ok) {
+			return res.json();
+		}
+		return res;
+	});
+};
