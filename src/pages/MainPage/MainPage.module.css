@@ -6,4 +6,9 @@
 	position: fixed;
 	right: 20px;
 	bottom: 50px;
+	opacity: 0.5;
+}
+
+.btnFloat:hover {
+	opacity: 0.8;
 }

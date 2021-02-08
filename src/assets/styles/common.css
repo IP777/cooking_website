@@ -37,6 +37,9 @@ span {
 td {
 	padding: 0;
 }
+nav {
+	background-color: #ffff;
+}
 
 :root {
 	--red-color: #e53935;

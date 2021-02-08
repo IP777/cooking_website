@@ -5,7 +5,7 @@ import style from "./RecipePage.module.css";
 import Header from "../../component/Header/Header";
 import RecipeTable from "../../component/RecipeTable/RecipeTable";
 import RecipeList from "../../component/RecipeList/RecipeList";
-import { Button, Icon } from "react-materialize";
+import EditDeleteBtnBlock from "../../component/EditDeletBtnBlock/EditDeleteBtnBlock";
 
 export default function RecipePage({
 	location,
@@ -75,26 +75,10 @@ export default function RecipePage({
 						</div>
 						<footer className={style.btnWrapper}>
 							{userName === fetchRecipe.autor && (
-								<>
-									<Button
-										className={style.btnEdit + " red"}
-										floating
-										icon={<Icon>edit</Icon>}
-										large
-										node="button"
-										waves="light"
-										onClick={editHandelbar}
-									/>
-									<Button
-										className="red"
-										floating
-										icon={<Icon>delete</Icon>}
-										large
-										node="button"
-										waves="light"
-										onClick={deleteHandelbar}
-									/>
-								</>
+								<EditDeleteBtnBlock
+									editHandelbar={editHandelbar}
+									deleteHandelbar={deleteHandelbar}
+								/>
 							)}
 						</footer>
 					</div>

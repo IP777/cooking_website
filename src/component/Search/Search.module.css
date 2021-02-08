@@ -19,11 +19,11 @@
 .select {
 	margin-top: 10px;
 	height: 45px !important;
-	width: 140px;
 	margin-left: 10px;
 	text-align: center;
 	-webkit-appearance: none;
 	-moz-appearance: none;
+	padding: 2px;
 }
 
 .serch_btn {

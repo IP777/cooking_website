@@ -48,7 +48,3 @@ p > span:last-child {
 	display: flex;
 	justify-content: end;
 }
-
-.btnEdit {
-	margin-right: 10px;
-}

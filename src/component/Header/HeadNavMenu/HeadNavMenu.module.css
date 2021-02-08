@@ -1,0 +1,18 @@
+.link_wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+li:nth-child(1) {
+	margin-right: 15px;
+}
+
+.selected_link {
+	font-weight: 700;
+	font-size: 16px;
+	color: var(--dark-4-color);
+}
+
+.selected_link_in {
+	color: var(--red-light-2-color);
+}

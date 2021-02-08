@@ -1,53 +1,25 @@
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+
 import style from "./Header.module.css";
 import HeaderLoginMenu from "../../containers/HeadLoginMenu";
+import HeadNavMenu from "../../component/Header/HeadNavMenu/HeadNavMenu";
 
-import { connect } from "react-redux";
-import { isLoggedInSelector } from "../../redux/reducer/session";
+export default function Header() {
+	const isLaptop = useMediaQuery({
+		query: "(min-device-width: 650px)",
+	});
 
-function Header({ isLoaded }) {
 	return (
-		<nav>
-			<div className="nav-wrapper grey lighten-5">
+		<div className={style.header_wrapper}>
+			<div className={style.head}>
 				<Link to="/" className={style.brand_logo}>
 					Cooking
 				</Link>
+				{isLaptop && <HeadNavMenu />}
 				<HeaderLoginMenu />
-				<ul
-					id="nav-mobile"
-					className={
-						style.link_wrapper + " right hide-on-med-and-down"
-					}
-				>
-					<li>
-						<NavLink
-							exact
-							to="/"
-							className={style.selected_link}
-							activeClassName={style.selected_link_in}
-						>
-							Главная
-						</NavLink>
-					</li>
-					{isLoaded && (
-						<li>
-							<NavLink
-								to="/myrecipe"
-								className={style.selected_link}
-								activeClassName={style.selected_link_in}
-							>
-								Мои рецепты
-							</NavLink>
-						</li>
-					)}
-				</ul>
 			</div>
-		</nav>
+			{!isLaptop && <HeadNavMenu />}
+		</div>
 	);
 }
-
-const mapStateToProps = (state) => ({
-	isLoaded: isLoggedInSelector(state),
-});
-
-export default connect(mapStateToProps)(Header);
