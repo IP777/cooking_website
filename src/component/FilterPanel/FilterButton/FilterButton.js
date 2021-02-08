@@ -2,8 +2,8 @@ import style from "./FilterButton.module.css";
 import { Icon } from "react-materialize";
 
 export default function FilterPanel({ name, isChecked, categoryChecket }) {
-	const toggleCheckBoxChange = () => {
-		categoryChecket(name, isChecked);
+	const toggleCheckBoxChange = (e) => {
+		categoryChecket(name, e.target.checked);
 	};
 
 	return (

@@ -12,7 +12,6 @@ export const getAllcontentRequestApi = () => {
 };
 
 export const getAlluserContentRequestApi = (userName) => {
-	console.log(userName);
 	return fetch(`${API_URL}/ricepes/user/${userName}`, {
 		method: "GET",
 	}).then((res) => {
@@ -84,28 +83,43 @@ export const deleteRecipeFromIDRequestApi = ({ id, userToken }) => {
 	});
 };
 
-export const getRecipeFromIngridientRequestApi = (ingridient) => {
-	return fetch(`${API_URL}/recipes/ingredient`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(ingridient),
-	}).then((res) => {
-		if (res.ok) {
-			return res.json();
-		}
-		return res.json();
-	});
-};
-
 export const getRecipeFromNameRequestApi = (recipe_name) => {
-	return fetch(`${API_URL}/ricepes/name`, {
+	return fetch(`${API_URL}/ricepes/search/name`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify(recipe_name),
+	}).then((res) => {
+		if (res.ok) {
+			return res.json();
+		}
+		return res;
+	});
+};
+
+export const getRecipeFromCategoryRequestApi = (category) => {
+	return fetch(`${API_URL}/ricepes/search/category`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(category),
+	}).then((res) => {
+		if (res.ok) {
+			return res.json();
+		}
+		return res;
+	});
+};
+
+export const getRecipeFromIngridientRequestApi = (ingridient) => {
+	return fetch(`${API_URL}/ricepes/search/ingridient`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(ingridient),
 	}).then((res) => {
 		if (res.ok) {
 			return res.json();

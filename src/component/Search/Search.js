@@ -4,17 +4,18 @@ import { Icon } from "react-materialize";
 import CustomSelect from "../../assets/customSelect/CustomSelect";
 
 const arr = [
-	{ id: "ingridient", name: "Ингридиентам" },
 	{ id: "tile", name: "Заголовкам" },
 	{ id: "category", name: "Категориям" },
+	{ id: "ingridient", name: "Ингридиентам" },
 ];
 
 export default function Search({
-	searchForIngridientsRecipes,
 	searchForNameRecipes,
+	searchForCategoryRecipes,
+	searchForIngridientsRecipes,
 }) {
 	const [text, setText] = useState("");
-	const [search, setSearch] = useState("ingridient");
+	const [search, setSearch] = useState("tile");
 
 	const getRecipeCategory = (props) => {
 		setSearch(props.id);
@@ -22,8 +23,21 @@ export default function Search({
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		//console.log({ recipe_name: text });
-		searchForNameRecipes({ recipe_name: text });
+
+		switch (search) {
+			case "tile":
+				searchForNameRecipes({ recipe_name: text });
+				break;
+			case "category":
+				searchForCategoryRecipes({ category: text });
+				break;
+			case "ingridient":
+				searchForIngridientsRecipes({ ingredient: text });
+				break;
+
+			default:
+				break;
+		}
 	};
 
 	const onChangeHandler = (e) => {
@@ -40,7 +54,7 @@ export default function Search({
 			/>
 			<CustomSelect
 				optionArray={arr}
-				select="ingridient"
+				select="tile"
 				SelectedItem={getRecipeCategory}
 				className={style.select}
 			/>

@@ -3,8 +3,9 @@ import {
 	getAllcontentRequestApi,
 	getAlluserContentRequestApi,
 	getRecipeFromIDRequestApi,
-	getRecipeFromIngridientRequestApi,
 	getRecipeFromNameRequestApi,
+	getRecipeFromCategoryRequestApi,
+	getRecipeFromIngridientRequestApi,
 	deleteRecipeFromIDRequestApi,
 	postRecipeRequestApi,
 } from "../../sevices/content-api";
@@ -84,24 +85,35 @@ export const deleteRecipeFromID = (credential) => async (dispath) => {
 	}
 };
 
-export const searchForIngridientsRecipes = (ingridient) => async (dispath) => {
+export const searchForNameRecipes = (recipe_name) => async (dispath) => {
 	try {
-		const response = await getRecipeFromIngridientRequestApi(ingridient);
-		console.log(response);
-		// if (!response.error) {
-		// 	dispath(getAllRecipes(response));
-		// } else {
-		// 	console.log(response.error);
-		// }
+		const response = await getRecipeFromNameRequestApi(recipe_name);
+		if (!response.error) {
+			dispath(getAllRecipes(response));
+		} else {
+			console.log(response.error);
+		}
 	} catch (error) {
 		throw new Error(error);
 	}
 };
 
-export const searchForNameRecipes = (recipe_name) => async (dispath) => {
+export const searchForCategoryRecipes = (recipe_name) => async (dispath) => {
 	try {
-		const response = await getRecipeFromNameRequestApi(recipe_name);
-		console.log(response);
+		const response = await getRecipeFromCategoryRequestApi(recipe_name);
+		if (!response.error) {
+			dispath(getAllRecipes(response));
+		} else {
+			console.log(response.error);
+		}
+	} catch (error) {
+		throw new Error(error);
+	}
+};
+
+export const searchForIngridientsRecipes = (ingridient) => async (dispath) => {
+	try {
+		const response = await getRecipeFromIngridientRequestApi(ingridient);
 		if (!response.error) {
 			dispath(getAllRecipes(response));
 		} else {

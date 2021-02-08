@@ -33,7 +33,7 @@ export default function AddRecipePage({
 }) {
 	const [recipe, setRecipe] = useState({
 		recipeID: "",
-		category: "",
+		category: "Салаты",
 		recipeName: "",
 		mainImageSrc: "",
 		description: "",

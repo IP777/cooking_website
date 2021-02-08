@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import style from "./MainPage.module.css";
 import Search from "../../containers/Search";
 import RecipePanel from "../../component/RecipePanel/RecipePanel";
-import FilterPanel from "../../component/FilterPanel/FilterPanel";
+import FilterPanel from "../../containers/FilterPanel";
 import CardsList from "../../component/CardList/CardsList";
 import Header from "../../component/Header/Header";
 import { Button, Icon } from "react-materialize";
@@ -15,10 +15,10 @@ export default function MainPage({
 	getAllrecipes,
 	getAllUserRecipes,
 }) {
-	const locatedIsHome = !location.pathname.includes("myrecipe");
-	const locatedIsMyPage = location.pathname.includes("myrecipe");
-
 	useEffect(() => {
+		const locatedIsHome = !location.pathname.includes("myrecipe");
+		const locatedIsMyPage = location.pathname.includes("myrecipe");
+
 		if (locatedIsMyPage) {
 			getAllUserRecipes(user.userName);
 		} else if (locatedIsHome) {

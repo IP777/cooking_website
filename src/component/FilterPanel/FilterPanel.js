@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./FilterPanel.module.css";
 import FilterButton from "./FilterButton/FilterButton";
 
-export default function FilterPanel() {
+export default function FilterPanel({ recipes, filterCategory, sortRecipe }) {
 	const [category, setCategory] = useState([
 		{
 			name: "Категория",
@@ -17,6 +17,7 @@ export default function FilterPanel() {
 			isChecked: false,
 		},
 	]);
+
 	const categoryChecket = (name, isChecked) => {
 		const newCategoryArray = category.map((iter) => {
 			if (iter.name === name) {
@@ -25,8 +26,16 @@ export default function FilterPanel() {
 				return { name: iter.name, isChecked: false };
 			}
 		});
+
 		setCategory(newCategoryArray);
-		//console.log(newCategoryArray);
+
+		const sortArr = recipes.sort((a, b) => {
+			const nameA = a.recipe_name.toLowerCase(),
+				nameB = b.recipe_name.toLowerCase();
+			return nameA > nameB;
+		});
+
+		filterCategory(sortArr);
 	};
 
 	return (
