@@ -8,6 +8,7 @@ import {
 	getRecipeFromIngridientRequestApi,
 	deleteRecipeFromIDRequestApi,
 	postRecipeRequestApi,
+	updateRecipeRequestApi,
 } from "../../sevices/content-api";
 
 export const getAllrecipes = () => async (dispath) => {
@@ -51,7 +52,7 @@ export const postRecipe = (credential) => async (dispath) => {
 
 export const updateRecipe = (credential) => async (dispath) => {
 	try {
-		const response = await postRecipeRequestApi(credential);
+		const response = await updateRecipeRequestApi(credential);
 		if (!response.error) {
 			dispath(recipeStatus({ message: "Recipe is update." }));
 		} else {

@@ -113,7 +113,7 @@ export default function AddRecipePage({
 
 	return (
 		<>
-			<input
+			{/* <input
 				type="button"
 				value="Fake recipe"
 				onClick={handlerFake}
@@ -124,7 +124,7 @@ export default function AddRecipePage({
 					bottom: 10,
 					height: 30,
 				}}
-			/>
+			/> */}
 			<Header />
 			<div className={style.wrapper}>
 				<form className={style.secondWrapper} onSubmit={handelSubmit}>

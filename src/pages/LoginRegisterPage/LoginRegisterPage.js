@@ -11,7 +11,8 @@ export default function LoginRegisterPage({
 	history,
 	login,
 	registration,
-	isLoggin,
+	isLoaded,
+	setUserRequest,
 }) {
 	const [user, setUser] = useState({
 		name: "",
@@ -32,9 +33,18 @@ export default function LoginRegisterPage({
 	// 	return ref.current;
 	// }
 
+	useEffect(() => {
+		if (isLoaded.error) {
+			toast.error(isLoaded.error);
+		} else if (isLoaded.message) {
+			setUserRequest("");
+			setUser({ name: "", email: "", password: "", repeatPassword: "" });
+		}
+	}, [isLoaded]);
+
 	const submitHandler = (e) => {
 		e.preventDefault();
-		//console.log(user);
+
 		if (registerPage) {
 			if (user.password === user.repeatPassword) {
 				registration({
@@ -56,10 +66,6 @@ export default function LoginRegisterPage({
 				email: user.email,
 				password: user.password,
 			});
-
-			setUser({ name: "", email: "", password: "", repeatPassword: "" });
-
-			toast(`Добро пожаловать!`);
 		}
 	};
 

@@ -42,7 +42,7 @@ export const postRecipeRequestApi = ({ createRecipe, userToken }) => {
 // prettier-ignore
 export const updateRecipeRequestApi = ({ createRecipe, userToken, recipeID }) => {
 	return fetch(`${API_URL}/ricepes/${recipeID}`, {
-		method: "PATH",
+		method: "POST",
 		headers: {
 			"Authorization": `Bearer ${userToken}`,
 			"Content-Type": "application/json",

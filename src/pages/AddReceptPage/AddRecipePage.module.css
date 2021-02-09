@@ -39,3 +39,9 @@
 	width: 100%;
 	text-align: center;
 }
+
+@media (max-width: 700px) {
+	.secondWrapper {
+		padding: 20px 20px;
+	}
+}

@@ -11,7 +11,7 @@ const initialState = {
 	userToken: "",
 	userEmail: "",
 	userName: "",
-	setUserRequest: false,
+	setUserRequest: {},
 };
 
 export default function user(state = initialState, { type, payload }) {

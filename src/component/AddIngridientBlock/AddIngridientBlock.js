@@ -30,7 +30,7 @@ export default function AddIngridientBlock({
 			{
 				id: shortid.generate(),
 				ingridient: "",
-				count: 0,
+				count: "",
 				add: true,
 			},
 		]);
@@ -79,7 +79,7 @@ export default function AddIngridientBlock({
 						<Button
 							className={style.addButton + " red"}
 							floating
-							icon={<Icon>add</Icon>}
+							icon={<Icon className={style.icon}>add</Icon>}
 							large
 							node="button"
 							waves="light"
@@ -89,7 +89,7 @@ export default function AddIngridientBlock({
 						<Button
 							className={style.addButton + " red"}
 							floating
-							icon={<Icon>delete</Icon>}
+							icon={<Icon className={style.icon}>delete</Icon>}
 							large
 							node="button"
 							waves="light"

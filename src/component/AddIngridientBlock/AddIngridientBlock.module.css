@@ -1,26 +1,27 @@
-.ingidientWrapper {
+/* .ingidientWrapper {
 	display: flex;
 	flex-wrap: wrap;
-}
+} */
 
 .ingridientBlock {
-	width: 45%;
+	width: 100%;
 	display: flex;
 }
 
 .ingridientBlock > input {
 	/* width: 40% !important; */
 	display: block;
-	color: gray;
+	color: var(--gray);
 	margin-top: 10px !important;
 	margin-right: 10px !important;
 }
 
 .ingridientBlock > input:nth-child(1) {
-	width: 65% !important;
+	width: calc(100% - 150px) !important;
 }
+
 .ingridientBlock > input:nth-child(2) {
-	width: 20% !important;
+	width: 70px !important;
 }
 
 .ingridientBlock > input::placeholder {
@@ -29,5 +30,9 @@
 
 .addButton {
 	transform: scale(0.7);
-	/* visibility: hidden; */
+	/* width: 70px !important; */
+}
+
+.icon {
+	width: auto !important;
 }

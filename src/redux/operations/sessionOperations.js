@@ -39,7 +39,7 @@ export const login = (credentials) => async (dispath) => {
 			localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(response));
 		} else {
 			//console.log(response.error);
-			dispath(setUserRequest(true));
+			dispath(setUserRequest(response));
 		}
 	} catch (error) {
 		throw new Error(error);
