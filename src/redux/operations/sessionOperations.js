@@ -1,4 +1,5 @@
 import {
+	setUserRequest,
 	setUserToken,
 	setUserEmail,
 	setUserName,
@@ -34,9 +35,11 @@ export const login = (credentials) => async (dispath) => {
 			dispath(setUserToken(response.token));
 			dispath(setUserEmail(response.email));
 			dispath(setUserName(response.name));
+			dispath(setUserRequest(""));
 			localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(response));
 		} else {
-			console.log(response.error);
+			//console.log(response.error);
+			dispath(setUserRequest(true));
 		}
 	} catch (error) {
 		throw new Error(error);

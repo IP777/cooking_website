@@ -1,4 +1,5 @@
 import {
+	SET_USER_REQUEST,
 	SET_USER_TOKEN,
 	SET_USER_EMAIL,
 	SET_USER_NAME,
@@ -10,12 +11,15 @@ const initialState = {
 	userToken: "",
 	userEmail: "",
 	userName: "",
+	setUserRequest: false,
 };
 
 export default function user(state = initialState, { type, payload }) {
 	switch (type) {
 		case SET_IS_LOADED:
 			return { ...state, isLoaded: payload };
+		case SET_USER_REQUEST:
+			return { ...state, setUserRequest: payload };
 		case SET_USER_TOKEN:
 			return { ...state, userToken: payload };
 		case SET_USER_EMAIL:
@@ -32,3 +36,4 @@ export const isLoggedInSelector = (state) => Boolean(state.session.userToken);
 export const getUser = (state) => state.session;
 export const getUserToken = (state) => state.session.userToken;
 export const isLoadedSelector = (state) => state.session.isLoaded;
+export const isLoadedStatus = (state) => state.session.setUserRequest;

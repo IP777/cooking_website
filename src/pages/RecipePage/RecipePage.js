@@ -6,6 +6,7 @@ import Header from "../../component/Header/Header";
 import RecipeTable from "../../component/RecipeTable/RecipeTable";
 import RecipeList from "../../component/RecipeList/RecipeList";
 import EditDeleteBtnBlock from "../../component/EditDeletBtnBlock/EditDeleteBtnBlock";
+import RecipeHeader from "../../component/RecipeHeader/RecipeHeader";
 
 export default function RecipePage({
 	location,
@@ -53,27 +54,14 @@ export default function RecipePage({
 				<>
 					<Header />
 					<div className={style.wrapper}>
-						<div className={style.header}>
-							<img
-								className={style.img}
-								src={fetchRecipe.main_image_src}
-								alt={`${fetchRecipe.recipe_name}`}
-							/>
-							<div className={style.sideTextWrapper}>
-								<p className={style.sideTextHeadBlock}>
-									<span>{fetchRecipe.recipe_name}</span>
-									<span>{fetchRecipe.category}</span>
-								</p>
-								<div>{fetchRecipe.description}</div>
-							</div>
-						</div>
-						<div className={style.mainBlock}>
+						<RecipeHeader fetchRecipe={fetchRecipe} />
+						<main className={style.main}>
 							<RecipeTable
 								ingridients={fetchRecipe.ingredients}
 							/>
 							<RecipeList list={fetchRecipe.recipe} />
-						</div>
-						<footer className={style.btnWrapper}>
+						</main>
+						<footer className={style.footer}>
 							{userName === fetchRecipe.autor && (
 								<EditDeleteBtnBlock
 									editHandelbar={editHandelbar}

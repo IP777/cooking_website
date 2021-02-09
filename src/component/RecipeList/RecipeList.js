@@ -7,16 +7,18 @@ export default function RecipeList({ list }) {
 			<ul>
 				{list.map(({ imageUrl, stepText }, index) => (
 					<li className={style.li} key={index}>
-						{imageUrl && (
+						{!imageUrl.includes("placehold") && (
 							<img
 								className={style.img}
 								src={imageUrl}
 								alt="img"
 							/>
 						)}
-						<p>
-							{index + 1}. {stepText}
-						</p>
+						{stepText && (
+							<p>
+								{index + 1}. {stepText}
+							</p>
+						)}
 					</li>
 				))}
 			</ul>

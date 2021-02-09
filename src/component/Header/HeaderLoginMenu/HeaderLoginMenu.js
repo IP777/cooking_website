@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./HeadLoginMenu.module.css";
 
 export default function HeaderLoginMenu({ user, isLogin, logout }) {
@@ -8,7 +8,7 @@ export default function HeaderLoginMenu({ user, isLogin, logout }) {
 	return (
 		<>
 			{isLogin ? (
-				<dev className={style.userMenu}>
+				<div className={style.userMenu}>
 					<span className={style.userName}>
 						Привет {user.userName} ||
 					</span>
@@ -18,26 +18,25 @@ export default function HeaderLoginMenu({ user, isLogin, logout }) {
 						value="Выход"
 						onClick={onLogout}
 					/>
-				</dev>
+				</div>
 			) : (
-				<>
-					<Link
+				<div className={style.userMenu}>
+					<NavLink
 						to="/login"
 						className={style.selected_link}
 						activeClassName={style.selected_link_in}
 					>
 						Войти
-					</Link>
-
-					<Link
+					</NavLink>
+					<NavLink
 						exact
 						to="/registration"
 						className={style.selected_link}
 						activeClassName={style.selected_link_in}
 					>
 						Регистрация
-					</Link>
-				</>
+					</NavLink>
+				</div>
 			)}
 		</>
 	);

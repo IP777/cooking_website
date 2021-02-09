@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { history } from "react-router-dom";
 import style from "./LoginRegisterPage.module.css";
 import { TextInput, Button } from "react-materialize";
 import M from "materialize-css";
 
 import LoginLinkBlock from "../../component/LoginLinkBlock/LoginLinkBlock";
 
-export default function LoginRegisterPage({ history, login, registration }) {
+export default function LoginRegisterPage({
+	history,
+	login,
+	registration,
+	isLoggin,
+}) {
 	const [user, setUser] = useState({
 		name: "",
 		email: "",
@@ -18,6 +22,15 @@ export default function LoginRegisterPage({ history, login, registration }) {
 
 	const registerPage = window.location.pathname.includes("registration");
 	const loginPage = window.location.pathname.includes("login");
+
+	// const prevLoggin = usePrevious(isLoggin);
+	// function usePrevious(value) {
+	// 	const ref = useRef();
+	// 	useEffect(() => {
+	// 		ref.current = value;
+	// 	});
+	// 	return ref.current;
+	// }
 
 	const submitHandler = (e) => {
 		e.preventDefault();

@@ -22,3 +22,13 @@
 .exitBtn:active {
 	color: var(--gray);
 }
+
+.selected_link {
+	font-weight: 700;
+	color: var(--dark-4-color);
+	margin-left: 20px;
+}
+
+.selected_link_in {
+	color: var(--red-light-2-color);
+}

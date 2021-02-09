@@ -7,7 +7,7 @@ import { isLoggedInSelector } from "../../../redux/reducer/session";
 function HeadNavMenu({ isLoaded }) {
 	return (
 		<ul className={style.link_wrapper}>
-			<li>
+			<li className={style.li}>
 				<NavLink
 					exact
 					to="/"
@@ -18,7 +18,7 @@ function HeadNavMenu({ isLoaded }) {
 				</NavLink>
 			</li>
 			{isLoaded && (
-				<li>
+				<li className={style.li}>
 					<NavLink
 						to="/myrecipe"
 						className={style.selected_link}

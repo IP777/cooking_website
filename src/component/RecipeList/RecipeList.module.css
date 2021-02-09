@@ -9,6 +9,9 @@ ul {
 }
 
 .li {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 	margin-bottom: 20px;
 	border-bottom: 2px solid var(--gray-light-2-color);
 }
@@ -20,9 +23,18 @@ ul {
 img {
 	display: inline-block;
 	height: 200px;
+	margin-bottom: 20px;
 }
 
 p {
 	font-size: 18px;
 	margin-bottom: 15px;
+	width: 100%;
+	text-align: justify;
+}
+
+@media (min-width: 650px) {
+	.li {
+		justify-content: start;
+	}
 }
