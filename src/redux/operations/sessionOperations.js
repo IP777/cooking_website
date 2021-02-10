@@ -10,6 +10,7 @@ import {
 	loginRequestApi,
 	registrationRequestApi,
 	logoutRequestApi,
+	testTokenRequestApi,
 } from "../../sevices/sessions-api";
 import { LOCAL_STORAGE_KEY } from "../../redux/constants/session";
 
@@ -70,4 +71,11 @@ export const getInitialData = () => (dispatch) => {
 		dispatch(setUserEmail(userData.email));
 	}
 	dispatch(isLoaded(true));
+};
+
+export const testToken = (token) => async (dispatch) => {
+	const response = await testTokenRequestApi(token);
+	if (response.error) {
+		dispatch(logout());
+	}
 };

@@ -44,3 +44,18 @@ export const logoutRequestApi = (data) => {
 		return res.json();
 	});
 };
+
+export const testTokenRequestApi = (userToken) => {
+	return fetch(`${API_URL}/user/test/`, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${userToken}`,
+		},
+	}).then((res) => {
+		if (res.ok) {
+			return res.json();
+		}
+		return res.json();
+	});
+};
