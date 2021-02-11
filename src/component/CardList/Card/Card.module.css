@@ -16,7 +16,12 @@
 
 .listWrapper {
 	width: 100%;
-	padding-left: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.description {
+	font-size: 16px;
 }
 
 .list {
@@ -32,10 +37,13 @@
 }
 
 .receptName {
-	display: block;
-	font-size: 18px;
+	/* display: block; */
+	font-size: 20px;
 	font-weight: 600;
-	width: calc(100% - 10px);
+	/* width: calc(100% - 50px); */
+	/* overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap; */
 }
 
 .itemName {
@@ -118,6 +126,25 @@
 		height: 100%;
 		margin-bottom: 0;
 	}
+
+	.listWrapper > div {
+		display: flex;
+	}
+
+	.description {
+		margin-right: 15px;
+		height: 70px;
+		overflow: hidden;
+	}
+
+	.description::after {
+		content: "Читать далее...";
+	}
+
+	.table {
+		width: inherit;
+	}
+
 	.itemName {
 		white-space: nowrap;
 	}

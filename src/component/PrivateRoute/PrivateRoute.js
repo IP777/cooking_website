@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { isLoggedInSelector, getUserToken } from "../../redux/reducer/session";
+import { isLoggedInSelector, getUser } from "../../redux/reducer/session";
 import { testToken } from "../../redux/operations/sessionOperations";
 
 function PrivateRoute({ children, ...restProps }) {
 	const dispatch = useDispatch();
-	const token = useSelector(getUserToken);
+	const user = useSelector(getUser);
 	const isLoggedIn = useSelector(isLoggedInSelector);
 
 	useEffect(() => {
@@ -15,7 +15,7 @@ function PrivateRoute({ children, ...restProps }) {
 		//Для мелких серверов я б такое не использовал увеличивается нагрузка на сервер
 		//Посмотрим как это сервер будет держатся если что удалить expiresIn: process.env.JWT_EXPIRES
 		//На сервере тогда будет условно бесконечный токен
-		dispatch(testToken(token));
+		dispatch(testToken({ token: user.userToken, email: user.userEmail }));
 	});
 
 	return (

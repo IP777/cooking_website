@@ -73,9 +73,9 @@ export const getInitialData = () => (dispatch) => {
 	dispatch(isLoaded(true));
 };
 
-export const testToken = (token) => async (dispatch) => {
+export const testToken = ({ token, email }) => async (dispatch) => {
 	const response = await testTokenRequestApi(token);
 	if (response.error) {
-		dispatch(logout());
+		dispatch(logout({ email: email }));
 	}
 };

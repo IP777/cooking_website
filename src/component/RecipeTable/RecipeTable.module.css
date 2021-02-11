@@ -5,19 +5,19 @@ caption {
 	margin-bottom: 10px;
 }
 
-tr {
+.tr {
 	border-bottom: 0;
 }
 
-tr:nth-child(2n) {
+.tr:nth-child(2n) {
 	background-color: var(--orange-lighten-4);
 }
 
-tr > td:nth-child(1) {
+.tr > td:nth-child(1) {
 	text-align: center;
 }
 
-tr > td:nth-child(2) {
+.tr > td:nth-child(2) {
 	font-weight: 600;
 }
 
@@ -25,7 +25,7 @@ tr > td:nth-child(3) {
 	text-align: right;
 }
 
-td {
+.td {
 	padding: 5px;
 	font-size: 16px;
 }

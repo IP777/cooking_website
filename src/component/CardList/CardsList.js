@@ -5,6 +5,7 @@ import slideTransition from "../../assets/transition/slide.module.css";
 import { Link } from "react-router-dom";
 
 export default function CardsList({ database }) {
+	// console.log(database);
 	return (
 		<TransitionGroup component="ul" className={style.list}>
 			{database.map(
@@ -15,6 +16,7 @@ export default function CardsList({ database }) {
 					category,
 					autor,
 					main_image_src,
+					description,
 				}) => (
 					<CSSTransition
 						key={_id}
@@ -37,6 +39,7 @@ export default function CardsList({ database }) {
 									category={category}
 									autor={autor}
 									mainImage={main_image_src}
+									description={description}
 								/>
 							</Link>
 						</li>

@@ -7,29 +7,35 @@ export default function Card({
 	category,
 	autor,
 	mainImage,
+	description,
 }) {
 	return (
 		<div className={style.wrapper}>
 			<img className={style.img} src={mainImage} alt="img" />
 			<div className={style.listWrapper}>
 				<span className={style.receptName}>{name}:</span>
-				<ul className={style.list}>
-					{ingridient.map(({ ingridient, count }, index) => {
-						if (index > 3) {
-							return false;
-						}
-						return (
-							<li key={index} className={style.item}>
-								<span className={style.itemName}>
-									{ingridient}
-								</span>
-								<span className={style.itemAmount}>
-									{count}
-								</span>
-							</li>
-						);
-					})}
-				</ul>
+				<div>
+					<p className={style.description}>{description}</p>
+					{/* <table className={style.table}>
+						<tbody className={style.list}>
+							{ingridient.map(({ ingridient, count }, index) => {
+								if (index > 3) {
+									return false;
+								}
+								return (
+									<tr key={index} className={style.item}>
+										<td className={style.itemName}>
+											{ingridient}
+										</td>
+										<td className={style.itemAmount}>
+											{count}
+										</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table> */}
+				</div>
 			</div>
 			<div className={style.leftBlock}>
 				<span className={style.leftBlockCategory}>{category}</span>
@@ -38,3 +44,33 @@ export default function Card({
 		</div>
 	);
 }
+
+// return (
+// 	<div className={style.wrapper}>
+// 		<img className={style.img} src={mainImage} alt="img" />
+// 		<div className={style.listWrapper}>
+// 			<span className={style.receptName}>{name}:</span>
+// 			<ul className={style.list}>
+// 				{ingridient.map(({ ingridient, count }, index) => {
+// 					if (index > 3) {
+// 						return false;
+// 					}
+// 					return (
+// 						<li key={index} className={style.item}>
+// 							<span className={style.itemName}>
+// 								{ingridient}
+// 							</span>
+// 							<span className={style.itemAmount}>
+// 								{count}
+// 							</span>
+// 						</li>
+// 					);
+// 				})}
+// 			</ul>
+// 		</div>
+// 		<div className={style.leftBlock}>
+// 			<span className={style.leftBlockCategory}>{category}</span>
+// 			<span className={style.leftBlockAutor}>{autor}</span>
+// 		</div>
+// 	</div>
+// );
