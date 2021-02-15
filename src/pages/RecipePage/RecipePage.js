@@ -7,6 +7,7 @@ import RecipeTable from "../../component/RecipeTable/RecipeTable";
 import RecipeList from "../../component/RecipeList/RecipeList";
 import EditDeleteBtnBlock from "../../component/EditDeletBtnBlock/EditDeleteBtnBlock";
 import RecipeHeader from "../../component/RecipeHeader/RecipeHeader";
+import Footer from "../../component/Footer/Footer";
 
 export default function RecipePage({
 	location,
@@ -70,6 +71,7 @@ export default function RecipePage({
 							)}
 						</footer>
 					</div>
+					<Footer />
 				</>
 			)}
 		</>

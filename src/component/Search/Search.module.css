@@ -47,3 +47,7 @@
 .serch_btn:hover {
 	color: var(--red-color);
 }
+
+.fakeSelect {
+	margin-left: 30px;
+}

@@ -1,157 +1,133 @@
 .wrapper {
-	border: 1px solid var(--dark-4-color);
-	border-radius: 3px;
+	border-bottom: 1px solid var(--dark-4-color);
+	border-top: 1px solid var(--dark-4-color);
 	display: flex;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	justify-content: center;
 	margin-bottom: 15px;
 }
 
-.img {
+.imgDiv {
 	display: block;
-	width: 170px;
-	height: auto;
-	border-radius: 3px 0 0 3px;
-	cursor: pointer;
+	width: 200px;
+	min-width: 170px;
+	height: 150px;
+	margin-top: 10px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
-.listWrapper {
+.textWrapper {
 	width: 100%;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-.description {
-	font-size: 16px;
-}
-
-.list {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-}
-
-.item {
-	display: flex;
-	justify-content: space-between;
-	margin-right: 20px;
+	text-align: center;
+	margin-bottom: 10px;
 }
 
 .receptName {
-	/* display: block; */
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	width: calc(100% - 15px);
 	font-size: 20px;
 	font-weight: 600;
-	/* width: calc(100% - 50px); */
-	/* overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap; */
-}
-
-.itemName {
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-.itemAmount {
-	overflow: hidden;
-	text-overflow: ellipsis;
 	white-space: nowrap;
-	min-width: 30px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
-.leftBlock {
-	display: block;
-	text-align: right;
-	padding-right: 15px;
-}
-
-.leftBlockCategory {
-	display: block;
-	font-weight: 700;
-	font-size: 17px;
-}
-
-.leftBlockAutor {
-	display: block;
+.description {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	max-height: 70px;
 	font-size: 16px;
 }
 
-@media (max-width: 600px) {
-	.wrapper {
-		flex-wrap: wrap;
-		justify-content: center;
-	}
+.readNext {
+	font-size: 16px;
+	color: var(--blue-light-darken-4);
+}
 
-	.img {
-		margin-top: 10px;
-	}
+.leftBlock {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 7px;
+}
 
-	.receptName {
-		width: calc(100% - 15px);
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
+.leftBlockCategory {
+	display: inline;
+	font-weight: 700;
+	font-size: 16px;
+	margin-right: 15px;
+	font-weight: 700;
+}
 
-	.leftBlock {
-		display: flex;
-		justify-content: space-between;
-		margin-top: 7px;
-	}
+.leftBlockCategory::before {
+	content: "Категория: ";
+	font-weight: 500;
+}
 
-	.leftBlockCategory {
-		display: inline;
-		margin-right: 15px;
-		font-weight: 700;
-		text-align: left;
-		margin-left: 15px;
-	}
-	.leftBlockCategory::before {
-		content: "Категория: ";
-		font-weight: 500;
-	}
-	.leftBlockAutor {
-		display: inline;
-		font-weight: 700;
-	}
-	.leftBlockAutor::before {
-		content: "Автор: ";
-		font-weight: 500;
-	}
+.leftBlockAutor {
+	display: inline;
+	font-size: 16px;
+	font-weight: 700;
+}
+.leftBlockAutor::before {
+	content: "Автор: ";
+	font-weight: 500;
 }
 
 @media (min-width: 600px) {
-	.item {
-		width: 250px;
-	}
-	.img {
-		height: 100%;
-		margin-bottom: 0;
+	.wrapper {
+		flex-wrap: nowrap;
 	}
 
-	.listWrapper > div {
-		display: flex;
+	.imgDiv {
+		margin-top: 0;
+	}
+
+	.textWrapper {
+		text-align: left;
+		padding: 0 15px;
+	}
+
+	.receptName {
+		height: 30px;
+		white-space: normal;
 	}
 
 	.description {
-		margin-right: 15px;
-		height: 70px;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		width: calc(100% - 15px);
 		overflow: hidden;
 	}
 
-	.description::after {
-		content: "Читать далее...";
+	.readNext {
+		display: block;
+		font-size: 16px;
 	}
 
-	.table {
-		width: inherit;
+	.leftBlock {
+		width: 150px;
+		min-width: 70px;
+		flex-direction: column;
+		justify-content: flex-start;
+		text-align: right;
 	}
 
-	.itemName {
-		white-space: nowrap;
+	.leftBlockCategory {
+		margin-right: 0;
 	}
-}
 
-@media (min-width: 1000px) {
-	.item {
-		width: 300px;
+	.leftBlockCategory::before {
+		display: none;
+	}
+
+	.leftBlockAutor::before {
+		display: none;
 	}
 }

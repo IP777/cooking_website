@@ -24,24 +24,23 @@ export const registration = (credentials) => async (dispath) => {
 		} else {
 			console.log(response.error);
 		}
+		return response;
 	} catch (error) {
+		console.log(error);
 		throw new Error(error);
 	}
 };
 
-export const login = (credentials) => async (dispath) => {
+export const loginWithResponse = (credentials) => async (dispath) => {
 	try {
 		const response = await loginRequestApi(credentials);
 		if (!response.error) {
 			dispath(setUserToken(response.token));
 			dispath(setUserEmail(response.email));
 			dispath(setUserName(response.name));
-			dispath(setUserRequest(""));
 			localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(response));
-		} else {
-			//console.log(response.error);
-			dispath(setUserRequest(response));
 		}
+		return response;
 	} catch (error) {
 		throw new Error(error);
 	}

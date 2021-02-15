@@ -5,6 +5,7 @@ import RecipePanel from "../../component/RecipePanel/RecipePanel";
 import FilterPanel from "../../containers/FilterPanel";
 import CardsList from "../../component/CardList/CardsList";
 import Header from "../../component/Header/Header";
+import Footer from "../../component/Footer/Footer";
 import { Button, Icon } from "react-materialize";
 import { Link } from "react-router-dom";
 
@@ -30,8 +31,8 @@ export default function MainPage({
 		<>
 			<Header />
 			<Search />
+			{/* <FilterPanel /> */}
 			<RecipePanel length={recipes.length} />
-			<FilterPanel />
 			<CardsList database={recipes} />
 			<Link to="/add" className={style.btnFloat}>
 				<Button
@@ -43,6 +44,7 @@ export default function MainPage({
 					waves="light"
 				/>
 			</Link>
+			<Footer />
 		</>
 	);
 }

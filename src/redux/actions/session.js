@@ -3,7 +3,6 @@ import {
 	SET_USER_EMAIL,
 	SET_USER_NAME,
 	SET_IS_LOADED,
-	SET_USER_REQUEST,
 } from "../constants/session";
 
 export const isLoaded = (payload) => ({
@@ -13,11 +12,6 @@ export const isLoaded = (payload) => ({
 
 export const setUserToken = (payload) => ({
 	type: SET_USER_TOKEN,
-	payload,
-});
-
-export const setUserRequest = (payload) => ({
-	type: SET_USER_REQUEST,
 	payload,
 });
 

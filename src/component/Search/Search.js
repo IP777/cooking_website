@@ -2,6 +2,7 @@ import { useState } from "react";
 import style from "./Search.module.css";
 import { Icon } from "react-materialize";
 import CustomSelect from "../../assets/customSelect/CustomSelect";
+import CustomFakeSelect from "../../assets/CustomFakeSelect/CustomFakeSelect";
 
 const arr = [
 	{ id: "tile", name: "Заголовкам" },
@@ -24,20 +25,22 @@ export default function Search({
 	const submitHandler = (e) => {
 		e.preventDefault();
 
-		switch (search) {
-			case "tile":
-				searchForNameRecipes({ recipe_name: text });
-				break;
-			case "category":
-				searchForCategoryRecipes({ category: text });
-				break;
-			case "ingridient":
-				searchForIngridientsRecipes({ ingredient: text });
-				break;
+		searchForNameRecipes({ recipe_name: text });
 
-			default:
-				break;
-		}
+		// switch (search) {
+		// 	case "tile":
+		// 		searchForNameRecipes({ recipe_name: text });
+		// 		break;
+		// 	case "category":
+		// 		searchForCategoryRecipes({ category: text });
+		// 		break;
+		// 	case "ingridient":
+		// 		searchForIngridientsRecipes({ ingredient: text });
+		// 		break;
+
+		// 	default:
+		// 		break;
+		// }
 	};
 
 	const onChangeHandler = (e) => {
@@ -45,22 +48,32 @@ export default function Search({
 	};
 
 	return (
-		<form className={style.wrapper} onSubmit={submitHandler}>
-			<input
-				type="text"
-				onChange={onChangeHandler}
-				className={style.textline}
-				placeholder="Поиск по"
-			/>
-			<CustomSelect
+		<>
+			<form className={style.wrapper} onSubmit={submitHandler}>
+				<input
+					type="text"
+					onChange={onChangeHandler}
+					className={style.textline}
+					placeholder="Поиск по"
+				/>
+				{/* <CustomSelect
 				optionArray={arr}
 				select="tile"
 				SelectedItem={getRecipeCategory}
 				className={style.select}
-			/>
-			<button className={style.serch_btn}>
-				<Icon className={style.serch_icon + " search"}>search</Icon>
-			</button>
-		</form>
+			/> */}
+				<button className={style.serch_btn}>
+					<Icon className={style.serch_icon + " search"}>search</Icon>
+				</button>
+			</form>
+
+			{/* <CustomSelect
+				optionArray={arr}
+				select="tile"
+				SelectedItem={getRecipeCategory}
+				className={style.select}
+			/> */}
+			<CustomFakeSelect optionArray={arr} className={style.fakeSelect} />
+		</>
 	);
 }

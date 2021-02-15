@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import Header from "../../component/Header/Header";
+import Footer from "../../component/Footer/Footer";
 import AddIngridientBlock from "../../component/AddIngridientBlock/AddIngridientBlock";
 import AddRecipeBlock from "../../component/AddRecipeBlock/AddRecipeBlock";
 import CustomInput from "../../assets/customInput/CustomInput";
@@ -107,9 +108,9 @@ export default function AddRecipePage({
 		setRecipe({ ...recipe, [e.target.id]: e.target.value });
 	};
 
-	const handlerFake = () => {
-		setRecipe(fakeRecipe);
-	};
+	// const handlerFake = () => {
+	// 	setRecipe(fakeRecipe);
+	// };
 
 	return (
 		<>
@@ -184,6 +185,7 @@ export default function AddRecipePage({
 					</div>
 				</form>
 			</div>
+			<Footer />
 		</>
 	);
 }

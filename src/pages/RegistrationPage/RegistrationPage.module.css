@@ -1,0 +1,25 @@
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.form {
+	width: 300px;
+	margin-top: 80px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.headText {
+	display: block;
+	color: var(--red-color);
+}
+
+.input_invalid {
+	background: var(--red-light-5-color) !important;
+}
+
+.formBtn {
+	width: 150px;
+}

@@ -16,6 +16,10 @@
 	color: var(--red-color);
 }
 
+.input_invalid {
+	background: var(--red-light-5-color) !important;
+}
+
 .formBtn {
 	width: 150px;
 }

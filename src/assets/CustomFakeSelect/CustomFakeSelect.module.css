@@ -1,0 +1,37 @@
+.listWrapper {
+	width: 150px;
+	cursor: pointer;
+}
+
+.listWrapper:hover > .selectList {
+	display: block;
+}
+
+.selectName {
+	display: block;
+	font-size: 18px;
+	padding: 5px;
+}
+.arrow_checkbox {
+	transform: translateY(5px);
+	margin-left: 10px;
+}
+
+.selectList {
+	display: none;
+	position: absolute;
+	margin: 0;
+}
+
+.item {
+	margin: 0;
+	font-size: 18px;
+	background-color: #fff;
+	padding: 5px 15px;
+}
+
+.item:hover {
+	/* text-decoration: underline; */
+	background-color: var(--red-orange-color);
+	color: #fff;
+}

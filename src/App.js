@@ -1,7 +1,8 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import MainPage from "./containers/MainPage";
-import LoginRegisterPage from "./containers/LoginRegister";
+import LoginPage from "./containers/LoginPage";
+import RegistrationPage from "./containers/RegistrationPage";
 import RecipePage from "./containers/RecipePage";
 import AddRecipePage from "./containers/AddRecipePage";
 import PrivateRoute from "./component/PrivateRoute/PrivateRoute";
@@ -25,10 +26,10 @@ export default function App() {
 			<Switch>
 				<Route exact path="/" component={MainPage} />
 				<GuestRoute path="/login">
-					<Route component={LoginRegisterPage} />
+					<Route component={LoginPage} />
 				</GuestRoute>
 				<GuestRoute path="/registration">
-					<Route component={LoginRegisterPage} />
+					<Route component={RegistrationPage} />
 				</GuestRoute>
 				<Route path="/recipe" component={RecipePage} />
 				<PrivateRoute path="/add">
