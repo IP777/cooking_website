@@ -5,7 +5,7 @@ import {
 	setUserName,
 	isLoaded,
 } from "../actions/session";
-import { getRecipe, recipeStatus } from "../actions/content";
+import { getRecipe, recipeStatus, allCategory } from "../actions/content";
 import {
 	loginRequestApi,
 	registrationRequestApi,

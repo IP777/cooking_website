@@ -1,4 +1,9 @@
-import { getAllRecipes, recipeStatus, getRecipe } from "../actions/content";
+import {
+	getAllRecipes,
+	recipeStatus,
+	getRecipe,
+	allCategory,
+} from "../actions/content";
 import {
 	getAllcontentRequestApi,
 	getAlluserContentRequestApi,
@@ -9,7 +14,9 @@ import {
 	deleteRecipeFromIDRequestApi,
 	postRecipeRequestApi,
 	updateRecipeRequestApi,
+	getAllcategoryRequestApi,
 } from "../../sevices/content-api";
+import { allCategoryState } from "../reducer/content";
 
 export const getAllrecipes = () => async (dispath) => {
 	try {
@@ -120,6 +127,16 @@ export const searchForIngridientsRecipes = (ingridient) => async (dispath) => {
 		} else {
 			console.log(response.error);
 		}
+	} catch (error) {
+		throw new Error(error);
+	}
+};
+
+export const getAllCategory = () => async (dispath) => {
+	try {
+		const response = await getAllcategoryRequestApi();
+		dispath(allCategory(response));
+		return response;
 	} catch (error) {
 		throw new Error(error);
 	}

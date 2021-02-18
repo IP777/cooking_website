@@ -48,6 +48,11 @@
 	color: var(--red-color);
 }
 
+.btnWrapper {
+	display: flex;
+	justify-content: center;
+}
+
 .fakeSelect {
 	margin-left: 30px;
 }

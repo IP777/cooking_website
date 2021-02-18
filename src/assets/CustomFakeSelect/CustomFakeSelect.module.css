@@ -1,5 +1,5 @@
 .listWrapper {
-	width: 150px;
+	width: 180px;
 	cursor: pointer;
 }
 
@@ -12,6 +12,7 @@
 	font-size: 18px;
 	padding: 5px;
 }
+
 .arrow_checkbox {
 	transform: translateY(5px);
 	margin-left: 10px;

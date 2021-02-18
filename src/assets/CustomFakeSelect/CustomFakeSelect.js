@@ -1,8 +1,19 @@
 import style from "./CustomFakeSelect.module.css";
 import { Icon } from "react-materialize";
+import { useState } from "react";
 
-export default function CustomFakeSelect({ optionArray, className }) {
-	console.log(optionArray);
+export default function CustomFakeSelect({
+	optionArray,
+	defaultName,
+	className,
+	onClick,
+}) {
+	const [target, setTarger] = useState("Категории");
+
+	const handlerOnclick = (e) => {
+		setTarger(e.target.id);
+		onClick(e.target.id);
+	};
 
 	return (
 		<div
@@ -13,15 +24,23 @@ export default function CustomFakeSelect({ optionArray, className }) {
 			}
 		>
 			<span className={style.selectName}>
-				Категории
+				{target}
 				<Icon className={style.arrow_checkbox + " arrow_drop_down"}>
 					arrow_drop_down
 				</Icon>
 			</span>
 
 			<ul className={style.selectList}>
-				<li className={style.item}>First Category</li>
-				<li className={style.item}>Second Category</li>
+				{optionArray.map(({ _id, category_name }) => (
+					<li
+						key={_id}
+						id={category_name}
+						className={style.item}
+						onClick={handlerOnclick}
+					>
+						{category_name}
+					</li>
+				))}
 			</ul>
 		</div>
 	);

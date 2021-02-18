@@ -78,12 +78,14 @@ export default function AddRecipePage({
 
 	useEffect(() => {
 		if (getRecipeStatus.message) {
-			toast("Рецепт добавлен...");
+			// toast("Рецепт добавлен...");
+			console.log("Рецепт добавлен...");
 			history.push({
 				pathname: "/",
 			});
 		} else if (getRecipeStatus.error) {
-			toast(getRecipeStatus.error);
+			// toast(getRecipeStatus.error);
+			console.log(getRecipeStatus.error);
 		}
 		return () => {
 			recipeStatus("");

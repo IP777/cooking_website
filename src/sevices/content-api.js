@@ -127,3 +127,14 @@ export const getRecipeFromIngridientRequestApi = (ingridient) => {
 		return res;
 	});
 };
+
+export const getAllcategoryRequestApi = () => {
+	return fetch(`${API_URL}/category/all`, {
+		method: "GET",
+	}).then((res) => {
+		if (res.ok) {
+			return res.json();
+		}
+		return res.json();
+	});
+};
