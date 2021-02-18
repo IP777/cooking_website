@@ -28,6 +28,7 @@ export default function AddRecipePage({
 	location,
 	recipeStatus,
 	getRecipeStatus,
+	categoryArray,
 	userToken,
 	postRecipe,
 	updateRecipe,
@@ -78,14 +79,13 @@ export default function AddRecipePage({
 
 	useEffect(() => {
 		if (getRecipeStatus.message) {
-			// toast("Рецепт добавлен...");
-			console.log("Рецепт добавлен...");
+			alert("Рецепт добавлен...");
 			history.push({
 				pathname: "/",
 			});
 		} else if (getRecipeStatus.error) {
 			// toast(getRecipeStatus.error);
-			console.log(getRecipeStatus.error);
+			alert(getRecipeStatus.error);
 		}
 		return () => {
 			recipeStatus("");
@@ -153,8 +153,8 @@ export default function AddRecipePage({
 						/>
 						<CustomSelect
 							className={style.selectList}
-							optionArray={arr}
-							select="salat"
+							optionArray={categoryArray}
+							select="Салаты"
 							SelectedItem={getRecipeCategory}
 						/>
 					</div>
