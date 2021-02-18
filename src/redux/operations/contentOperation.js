@@ -98,9 +98,11 @@ export const searchForNameRecipes = (recipe_name) => async (dispath) => {
 		const response = await getRecipeFromNameRequestApi(recipe_name);
 		if (!response.error) {
 			dispath(getAllRecipes(response));
-		} else {
-			console.log(response.error);
 		}
+		//  else {
+		// 	console.log(response.error);
+		// }
+		return response;
 	} catch (error) {
 		throw new Error(error);
 	}

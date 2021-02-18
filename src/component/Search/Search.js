@@ -26,7 +26,11 @@ export default function Search({
 		e.preventDefault();
 		searchForNameRecipes({
 			recipe_name: text,
-		});
+		}).then(
+			(res) =>
+				res.error &&
+				alert("Такой рецепт не найден.. Попробуйте ввести другой :))")
+		);
 	};
 
 	const onChangeHandler = (e) => {
