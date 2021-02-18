@@ -13,6 +13,7 @@ export default function Search({
 	category,
 }) {
 	const [text, setText] = useState("");
+	const [categoryState, setCategoryState] = useState();
 
 	useEffect(() => {
 		//Защита от лишних загрузок
@@ -33,6 +34,7 @@ export default function Search({
 	};
 
 	const getCategorySearchName = (props) => {
+		setCategoryState(props);
 		searchForCategoryRecipes({ category: props });
 	};
 
@@ -52,11 +54,13 @@ export default function Search({
 			<div className={style.btnWrapper}>
 				<CustomFakeSelect
 					optionArray={category}
-					defaultName={category[0]}
 					className={style.fakeSelect}
 					onClick={getCategorySearchName}
 				/>
 			</div>
+			{categoryState && (
+				<h3 className={style.category_name}>{categoryState}</h3>
+			)}
 		</>
 	);
 }
