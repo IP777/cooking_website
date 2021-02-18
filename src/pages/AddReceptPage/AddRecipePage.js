@@ -44,7 +44,7 @@ export default function AddRecipePage({
 	});
 
 	const getRecipeCategory = (props) => {
-		setRecipe({ ...recipe, category: props.name });
+		setRecipe({ ...recipe, category: props.category_name });
 	};
 
 	const getRecipeIngredients = (props) => {

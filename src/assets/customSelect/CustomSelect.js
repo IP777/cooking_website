@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./CustomSelect.module.css";
 
 export default function CustomSelect({
@@ -9,15 +9,23 @@ export default function CustomSelect({
 	styleOption,
 	name,
 }) {
-	const addSelectToArray = optionArray.map((iter) => ({
-		...iter,
-		select: iter.category_name === select ? true : false,
-	}));
+	// const addSelectToArray = optionArray.map((iter) => ({
+	// 	...iter,
+	// 	select: iter.category_name === select ? true : false,
+	// }));
 
-	const [option, setOption] = useState(addSelectToArray);
-	const defaultValue = option.find((iter) => iter.select).category_name;
+	const [option, setOption] = useState(optionArray);
 
-	console.log(defaultValue);
+	useEffect(() => {
+		return () => {
+			const addSelectToArray = optionArray.map((iter) => ({
+				...iter,
+				select: iter.category_name === select ? true : false,
+			}));
+
+			setOption(addSelectToArray);
+		};
+	}, [optionArray]);
 
 	const handelSelect = (e) => {
 		e.preventDefault();
@@ -29,7 +37,9 @@ export default function CustomSelect({
 
 		setOption(newOptionArr);
 
-		SelectedItem(newOptionArr.find((i) => i.select));
+		console.log(newOptionArr.find((i) => i.select));
+
+		//SelectedItem(newOptionArr.find((i) => i.select).category_name);
 	};
 
 	return (
@@ -39,10 +49,10 @@ export default function CustomSelect({
 				className={
 					className ? className + " " + style.select : style.select
 				}
-				value={defaultValue}
+				value={option[0].category_name}
 				onChange={handelSelect}
 			>
-				{optionArray.map(({ _id, category_name, select }) => {
+				{option.map(({ _id, category_name, select }) => {
 					if (select) {
 						return (
 							<option
